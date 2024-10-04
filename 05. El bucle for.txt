@@ -1,0 +1,33 @@
+﻿El bucle for
+
+En ocasiones necesitamos recorrer una secuencia de elementos para encontrar lo que buscamos.
+
+for (int i = 0; i < 10; i++)
+{
+	Console.WriteLine(i);
+}
+
+Al ejecutar este programa tenemos una lista de números que va del 0 al 9. Esto significa que C# ha ejecutado el código varias veces hasta que se cumpla una determinada condición. En ese momento deja de ejecutarse el bloque de código y el programa sigue.
+
+Vamos a descomponer lo que dice este bloque for:
+
+- Declaramos una variable i y le asignamos el valor 0.
+- Mientras i sea menor que 10 se ejecutará ese bloque de código (la parte que está entre llaves).
+- Cada vez que se ejecute el bloque incrementamos el valor de i en 1.
+
+i++ significa incrementar el valor de i en 1.
+
+A la hora de recordar cómo se define el bucle for, quizá ayude separar las tres partes por el punto y coma: inicialización del contador, condición a cumplir, incremento del contador.
+
+for (int i = 0; i < 10; i++)
+{
+	if (i == 7)
+	{
+		Console.WriteLine("¡He encontrado el 7!");
+		break;
+	}
+}
+
+En este caso en el bloque tenemos una instrucción if que se ejecutará cuando i valga 7. Entonces se imprimirá que hemos encontrado el 7, ¿pero qué hace break? simplemente salir del bucle for y continuar con el resto del programa.
+
+Podemos autocompletar un esqueleto del bucle. Para eso hay que escribir la f (y opcionalmente la o) y bajar con las flechas hasta &laquo;for, for loop&rauo;. Una vez completado el esqueleto, el cursor se posicionará en le nombre de la variable para que pongamos el que queramos. Hecho esto, pulsamos tab y podemos completar el valor inicial y el valor final para ajustar el bucle a nuestras necesidades.
