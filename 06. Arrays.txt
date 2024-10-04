@@ -1,0 +1,78 @@
+﻿Arrays
+A emnudo hay que trabajar con valores de variables que están relacionados. ¿Cómo se trabaja con múltiples variables de manera que se puedan tratar como si fueran del mismo gurpo?
+
+supongamos que necesitamos trabajar con 5 números que están relacionados entre sí y queremos encontrar cuál de ellos es el 16.
+
+Veamos primero la forma en la que no hay que hacerlo.
+
+int numero1 = 4;
+int numero2 = 8;
+int numero3 = 15;
+int numero4 = 16;
+int numero5 = 23;
+
+if (numero1 == 16)
+{
+// Código a ejecutar si number1 es igual a 16
+}
+else if (numero2 == 16)
+{
+// Código a ejecutar si number2 es igual a 16
+}
+else if (numero3 == 16)
+{
+// Código a ejecutar si number3 es igual a 16
+}
+
+
+Nos gustaría poder recorrer estas variables con un bucle, pero esta técnica nos fuerza a crear una estructura condicional que verifique si cada variable es igual a 16. Por lo tanto, ésta no es la forma de hacerlo.
+
+Si decíamos que una variable es un lugar en la memoria para poner algo, podemos expandir esta definición y pensar en un array como en un lugar con varios compartimentos, de forma que podemos guardar un valor diferente en cada compartimento.
+
+int[] numeros = new int[5];
+numeros[0] = 4;
+numeros[1] = 8;
+numeros[2] = 15;
+numeros[3] = 16;
+numeros[4] = 23;
+// Imprimir el segundo elemento
+Console.WriteLine(numeros[1]);
+// Mostrar la cantidad de elementos
+Console.WriteLine(numeros.Length);
+
+Por ahora no vamos a explicar todo el significado de la sintaxis necesaria para declarar un array. por ahora, solo diremos que el 5 que aparece es la cantidad de elementos que queremos que tenga. Por ahora leámoslo así: queremos un array que contenga 5 números enteros.
+
+Luego accedemos a cada elemento del array y le asignamos su valor. Como dijimos en un capítulo anterior, el prime elemento siempre será el 0.
+
+Para saber la cantidad de elementos que tiene un array accedemos a la propiedad Length.
+
+Si intentamos asignar un nuevo elemento al array (por ejemplo el índice 5) no lo detectaríamos al comprobar los errores con control shift m, pero al ejecutar la aplicación en la cosnola veráimos una excepción.
+
+Veamos ahora cómo declarar y asignar los valores de un array en la misma línea.
+
+int[] numeros = new int[] { 4, 8, 15, 16, 23, 42 };
+
+En este caso no especificamos el tamaño, sino que el compilador lo averigua contando los elementos que hemos puesto entre llaves.
+
+También podemos trabajar con otros tipos de datos. Declararemos un array de strings con nombres y lo usaremos para ver cómo iterarlo. Una forma sería con el bucle for que ya conocemos. La segunda es usando el bucle foreach (que se puede autocompletar con foreach loop) que crea una variable temporal que en cada iteración almacena cada elemento del array. Dejamos una a continuación de la otra para comparar.
+
+string[] nombres = new string[] { "Eduardo", "Alejandro", "Miguel", "David" };
+for (int i = 0; i < nombres.Length; i++)
+{
+	Console.WriteLine(nombres[i]);
+}
+foreach (string nombre in nombres)
+{
+	Console.WriteLine(nombre);
+}
+
+Veamos otro uso de los arrays. Convertir un string en un array de carateres para poner el string al revés.
+
+string cita = "Puedes obtener lo que quieras de la vida si ayudas a los demás a obtener lo que quieren";
+char[] caracteres = cita.ToCharArray();
+Array.Reverse(caracteres);
+foreach (string caracter in caracteres)
+{
+	Console.Write(caracter);
+}
+Console.WriteLine("");
