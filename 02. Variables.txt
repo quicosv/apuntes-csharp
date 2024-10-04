@@ -1,0 +1,62 @@
+﻿/* 
+Variables
+
+Según el nivel de matemáticas que tengas quizá hayas visto algo como esto:
+
+5 + x = 12
+
+Probablemente llegues a la conclusión de que x vale 7.
+
+siguiendo la misma lógica, mira este fragmento de código:
+
+x = 7;
+y = x + 3;
+Console.WriteLine(y);
+
+Se imprimiría 10.
+
+En este contexto, x e y son variables. Una variable es algo en la memoria del ordenador donde se pueden guardar valores, consultar valores o reemplazarlos con valores diferentes.
+
+En este caso, x e y almacenan valores numéricos. Pero como podemos querer almacenar otros tipos de valores (números muy grandes, textos o números con decimales) necesitamos una manera de expresarlo en C#.
+ */
+
+// Queremos almacenar dos números enteros.
+int x;
+int y;
+// al = se le llama operador de asignación.
+x = 7;
+y = x + 3;
+Console.WriteLine(y);
+
+Si has estudiado matemáticas estarás familiarizado con la notación de x e y, pero no debes usarla. Hay que dar a las variables nombres significativos que describan lo que van a contener. No importa cuánto haya que teclear. Lo importante es que el programa sea legible.
+
+Truco: Con f2 se puede renombrar una variable y lo cambia en todas partes.
+
+// Esto imprime en la consola sin cambiar a la siguiente línea
+Console.Write("Escribe tu nombre: ");
+// Para almacenar una cadena de caracteres
+string miNombre;
+// Le asignamos lo que el usuario escriba cuando pulse enter
+miNombre = Console.ReadLine();
+Console.Write("Escribe tus apellidos: ");
+string misApellidos;
+misApellidos = Console.ReadLine();
+// Aquí no se suma sino que se concatena, es decir, se pone una cadena a continuación de la otra
+Console.WriteLine("Hola " + miNombre + " " + misApellidos + ".");
+
+La convención que se ha usado para nombrar las variables se llama camel case. La primera letra está en minúscula y, si el nombre contiene varias palabras, la inicial de cada una de las siguientes se pone en mayúscula.
+
+el autocompletado puede ayudar a recordar cómo habíamos nombrado una variable. empezamos a escribir y se nos leerán las sugerencias. Navegamos con las flechas y con enter seleccionamos la que queremos y el editor la completará. Así nos aseguraremos siempre de tener nuestras variables con sus mayúsculas y sus minúsculas correctas.
+
+Podríamos haber inicializado las variables, es decir, haberles dado un valor en la misma línea en la que las declaramos.
+// Esto imprime en la consola sin cambiar a la siguiente línea
+Console.Write("Escribe tu nombre: ");
+// Para almacenar una cadena de caracteres
+// Le asignamos lo que el usuario escriba cuando pulse enter
+string miNombre = Console.ReadLine();
+Console.Write("Escribe tus apellidos: ");
+string misApellidos = Console.ReadLine();
+// Aquí no se suma sino que se concatena, es decir, se pone una cadena a continuación de la otra
+Console.WriteLine("Hola " + miNombre + " " + misApellidos + ".");
+
+Esto es importante porque queremos que nuestras variables tengan valores lo antes posible. Además, se reduce lo que hay que teclear y el código que hay que leer. Por lo tanto, como buena práctica, declara las variables cuando las necesites y, si puedes, dales un valor inicial en la misma línea.

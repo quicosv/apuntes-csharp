@@ -1,0 +1,166 @@
+﻿Condicionales
+
+Basado en lo que escriba el usuario escribiremos lógica para ejecutar algún código.
+
+La condición puede ser lo que el usuario escriba, el estado del sistema o cualquier dato al que tengamos acceso.
+
+Console.WriteLine("¡el gran concurso de Bob!");
+Console.Write("Elige una puerta (1 a 3): ");
+string eleccionUsuario = Console.ReadLine();
+if (eleccionUsuario=="1")
+{
+	string mensaje = "¡Has ganado un coche nuevo!";
+	Console.WriteLine(mensaje);
+}
+
+Podemos jugar al gran concurso de Bob. Si elegimos la puerta 1 ganamos un coche, pero si elegimos la puerta 2 ó 3 (o incluso si escribimos algo aleatorio) no ocurre nada.
+
+Decidimos si se ejecutará el código que hay dentro del bloque if basándonos en la evaluación que hay justo después de la palabra if. En este caso, estamos evaluando lo que escribe el usuario. Queremos saber si lo que ha escrito le usuario es la cadena "1". Únicamente si eso es verdadero se ejecutará el código que hay dentro del bloque. Si es falso el bloque se ignorará.
+
+Presta atención a que hay dos signos igual seguidos. Un único signo igual es el operador de asignación. Dos signos igual seguidos es el operador para comparar si una cosa es igual a otra.
+
+Este juego aún no es interesante, en primer lugar porque no hay respuestas para las puertas 2 y 3. Admás, ¿qué pasa si el usuario pone 4, 5, 6 o incluso asdf? nuestra aplicación tiene que tener en cuenta todos los escenarios. La nueva versión queda así:
+
+Console.WriteLine("¡el gran concurso de Bob!");
+Console.Write("Elige una puerta (1 a 3): ");
+string eleccionUsuario = Console.ReadLine();
+if (eleccionUsuario=="1")
+{
+	string mensaje = "¡Has ganado un coche nuevo!";
+	Console.WriteLine(mensaje);
+}
+else if(eleccionUsuario=="2")
+{
+	string mensaje = "¡Has ganado un barco!";
+	Console.WriteLine(mensaje);
+}
+else if(eleccionUsuario=="3")
+{
+	string mensaje = "¡Has ganado un gato!";
+	Console.WriteLine(mensaje);
+}
+
+Podemos usar else if para evaluar más condiciones. Cuando encuentre una condición cierta se ejecutará el bloque correspondiente.
+
+¿Qué pasa si el usuario pone un número distinto o incluso caracteres al azar? necesitamos un bloque que se pueda ejecutar en cualquiera de esos casos. Esto se consigue con la palabra clave else. Este bloque hay que ponerlo después del de la última condición. Ahora el código completo queda así:
+
+Console.WriteLine("¡el gran concurso de Bob!");
+Console.Write("Elige una puerta (1 a 3): ");
+string eleccionUsuario = Console.ReadLine();
+if (eleccionUsuario=="1")
+{
+	string mensaje = "¡Has ganado un coche nuevo!";
+	Console.WriteLine(mensaje);
+}
+else if(eleccionUsuario=="2")
+{
+	string mensaje = "¡Has ganado un barco!";
+	Console.WriteLine(mensaje);
+}
+else if(eleccionUsuario=="3")
+{
+	string mensaje = "¡Has ganado un gato!";
+	Console.WriteLine(mensaje);
+}
+else {
+	string mensaje = "Perdón. No lo hemos entendido.";
+	Console.WriteLine(mensaje);
+}
+
+El programa ya funciona, pero tenemos una oportunidad de limpiar el código. Para ello, busquemos áreas donde tengamos código repetido.
+
+en primer lugar, en todas las condiciones estamos mostrando el valor de la variable mensaje. Podríamos hacerlo una única vez fuera de todos los condicionales. Eso genera unos cuantos errores por culpa de lo que llamamos alcance de las variables, cosa que podemos resumir con la siguiente regla: si una variable se declara dentro de un bloque no se puede acceder a ella desde fuera del bloque. Así que definiremos la variable mensaje antes del condicional dándole el valor de la cadena vacía (simplemente abrir y cerrar comillas) y dejaremos que los condicionales se encarguen solo de cambiar el valor. Ésta es la versión actual del código:
+
+Console.WriteLine("¡el gran concurso de Bob!");
+Console.Write("Elige una puerta (1 a 3): ");
+string eleccionUsuario = Console.ReadLine();
+string mensaje = "";
+if (eleccionUsuario == "1")
+{
+	mensaje = "¡Has ganado un coche nuevo!";
+}
+else if (eleccionUsuario == "2")
+{
+	mensaje = "¡Has ganado un barco!";
+}
+else if (eleccionUsuario == "3")
+{
+	mensaje = "¡Has ganado un gato!";
+}
+else
+{
+	mensaje = "Perdón. No lo hemos entendido.";
+}
+Console.WriteLine(mensaje);
+
+hay otro cambio que se podría hacer. Si lo que va dentro del bloque de la condición es una única instrucción se podrían eliminar las llaves, pero hay que tener mucho cuidado. Supongamos que dentro del else añadimos una línea más para indicar que el usuario ha perdido y quitamos todas las llaves.
+
+Ahora el código queda así:
+
+Console.WriteLine("¡el gran concurso de Bob!");
+Console.Write("Elige una puerta (1 a 3): ");
+string eleccionUsuario = Console.ReadLine();
+string mensaje = "";
+if (eleccionUsuario == "1")
+	mensaje = "¡Has ganado un coche nuevo!";
+else if (eleccionUsuario == "2")
+	mensaje = "¡Has ganado un barco!";
+else if (eleccionUsuario == "3")
+	mensaje = "¡Has ganado un gato!";
+else
+	mensaje = "Perdón. No lo hemos entendido.";
+mensaje = mensaje + " Has perdido.";
+Console.WriteLine(mensaje);
+
+Elijamos una puerta ganadora a ver qué pasa.
+
+¡el gran concurso de Bob!
+Elige una puerta (1 a 3): 3
+¡Has ganado un gato! Has perdido.                                                                                       
+
+¿Cómo? ¿por qué hemos perdido si hemos ganado un gato? esto pasa porque como no hemos puesto llaves se interpreta que en el bloque solo hay una instrucción.
+
+Volvamos a poner todas las llaves y aprovechemos para ver un nuevo operador.
+
+Console.WriteLine("¡el gran concurso de Bob!");
+Console.Write("Elige una puerta (1 a 3): ");
+string eleccionUsuario = Console.ReadLine();
+string mensaje = "";
+if (eleccionUsuario == "1")
+{
+	mensaje = "¡Has ganado un coche nuevo!";
+}
+else if (eleccionUsuario == "2")
+{
+	mensaje = "¡Has ganado un barco!";
+}
+else if (eleccionUsuario == "3")
+{
+	mensaje = "¡Has ganado un gato!";
+}
+else
+{
+	mensaje = "Perdón. No lo hemos entendido.";
+	mensaje += mensaje;
+}
+Console.WriteLine(mensaje);
+
+Aquí se está combinando el operador de asignación y el de concatenación en un solo paso.
+
+Evaluación de una única condición
+
+Vamos a cambiar las normas del concurso. Ahora solo se puede ganar eligiendo la puerta 1. Además, veremos otra manera de escribir mensajes:
+
+Console.WriteLine("¡el gran concurso de Bob!");
+Console.Write("Elige una puerta (1 a 3): ");
+string eleccionUsuario = Console.ReadLine();
+string mensaje = (eleccionUsuario == "1") ? "un barco" : "una hebra de una pelusa";
+Console.WriteLine("Has escrito {0}, así que has ganado {1}.", eleccionUsuario, mensaje);
+
+Hablemos primero de la forma en la que asignamos el valor de la variable mensaje. se escribe la condición que queremos evaluar. Si la condición se cumple se ejecutará lo que haya después del singo de interrogación. Si no se cumple se ejecutará lo que hay después del signo de dos puntos.
+
+ahora veamos cómo se imprime el mensaje. Aquí estamos sustituyendo cosas en una cadena de texto. Después de la coma estamos pasando una lista de variables separadas por comas. En la cadena, cuando queremos que aparezca el valor de una de las variables de la lista ponemos entre llaves la posición que ocupa en la lista.
+
+Cuando hacemos listas en programación, el primer elemento ocupa la posición 0, el segundo la posición 1 y así sucesivamente.
+
+En nuestro caso la posición 0 corresponde a la variable eleccionUsuario (la primera de la lista) y la posición 1 corresponde a la variable mensaje (la segunda que hay en la lista).

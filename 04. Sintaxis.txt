@@ -1,0 +1,72 @@
+﻿Sintaxis
+
+Hay que dominar cómo se forma la sintaxis de C# para poder entendereste lenguaje.
+
+Instrucciones
+
+Una instrucción es lo que llamaría mos una idea completa. Cada instrucción está formada por una o más experesiones y las expresiones están formadas por uno o más operadores y operandos. Por ejemplo, en una sentencia que declara una variable tenemos:
+
+- Un operador que es el tipo de variable.
+- Un operando que es el nombre de la variable.
+- Finalmente, un operando que es el punto y coma.
+
+En una asignación de una variable sabemos que el operador de asignación guarda en el operando de la izquierda la expresión que tiene a la derecha.
+
+
+Si lo comparamos con el lenguaje humano, los operandos (objetos, clases, variables, valores...) serían como el sujeto. Son muy fáciles de recordar porque somos nosotros quienes les damos nombre y definimos sus valores.
+
+Los operadores son similares a los verbos. Actúan sobre los operandos para llevar a cabo una acción determinada. Hay unos cuantos operadores predefinidos y hay que memorizarlos. Veamos un programa con ejemplos de los operadores que más usaremos en C#.
+
+// Declaración de variables
+int x, y, a, b;
+// Operador de asignación
+x = 3;
+y = 4;
+a = 1;
+b = 0;
+// Hay bastantes operadores matemáticos...
+// suma
+x = 3 + 4;
+// Resta
+x = 4 - 3;
+// Multiplicación
+x = 10 * 5;
+// Ordenar cálculos con paréntesis
+x = (x + y) * (a - b);
+// Hay muchos operadores usados para evaluar valores...
+// Operador de igualdad
+if (x == y) { }
+// Operador mayor que
+if (x > y) { }
+// Operador menor que
+if (x < y)
+{ }
+// Operador mayor o igual
+if (x >= y) { }
+// Operador menor o igual
+if (x <= y) { }
+/* 
+Hay otros dos operadores que se pueden usar para expandir o mejorar una evaluación y se pueden combinar
+ */
+// Operador y
+if ((x > y) && (a > b)) { }
+// Operador o
+if ((x > y) || (a > b)) { }
+// Operador ternario
+string mensaje = (x == 1) ? "coche" : "barco";
+// Acceso a miembros e invocación de métodos
+Console.WriteLine("Hola");
+
+Podemos declarar todas las variables en la misma línea porque todas son del mismo tipo.
+
+Aquí los paréntesis no están llamando a ningún método, sino que son signos matemáticos que sirven para determinar el orden en el que deben hacerse las operaciones. Lo que está dentro de los paréntesis es lo que se calculará primero.
+
+En cuanto a los operadores de evaluación los paréntesis sirven para delimitar la expresión que queremos evaluar.
+
+Con el operador y podemos saber si las dos condiciones son ciertas, mientras que con el operador o preguntamos si alguna de las condiciones es cierta.
+
+También hemos hablado del operador ternario que dice que si la condición es cierta ocurre lo que hay después de la interrogación, mientras que si es falsa se ejecuta lo que viene después del signo de dos puntos.
+
+También sabemos que si queremos acceder a un miembro de una clase tenemos que separar el nombre de la clase y el de su miembro con un punto. Además, para invocar a un método tenemos que poner paréntesis después del nombre. Dentro de esos paréntesis puede que haya que poner información que el método necesite.
+
+Si entendemos el significado de estos operadores podremos detectar mejor cualquier error de sintaxis que tengamos en el código.
