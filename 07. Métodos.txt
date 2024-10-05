@@ -1,0 +1,181 @@
+﻿Métodos
+
+Crear métodos nos va a ayudar a diferentes cosas como:
+
+- Organizar mejor el código.
+- Eliminar código duplicado.
+- Dar nombres a funcionalidades de la aplicación.
+- Será más simple corregir o actualizar el código.
+
+Un método es un bloque de código que tiene un nombre. Se le puede invocar por el nombre que se le ha dado.
+
+Vamos a reescribir el Hola Mundo utilizando un método.
+
+static void HolaMundo() {
+	Console.WriteLine("Hola mudno");
+}
+HolaMundo();
+
+Estamos creando un bloque de código que se llama HolaMundo. En el cuerpo solo se imprime Hola Mundo. Se le llama como cualquier otra función: con el nombre y los paréntesis. Más adelante se explicará lo que significan las palabras static y void.
+
+Vayamos a otro ejemplo. Supongamos que queremos hacer un programa que imprima al revés el nombre, los apellidos y la ciudad de nacimiento del usuario. Partimos del siguiente código:
+
+Console.WriteLine("El juego del nombre");
+
+Console.Write("Tu nombre: ");
+string nombre = Console.ReadLine();
+
+Console.Write("Tus apellidos: ");
+string apellidos = Console.ReadLine();
+
+Console.Write("La ciudad en la que naciste: ");
+string ciudad = Console.ReadLine();
+
+char[] arrayNomre = nombre.ToCharArray();
+Array.Reverse(arrayNomre);
+char[] arrayApellidos = apellidos.ToCharArray();
+Array.Reverse(arrayApellidos);
+
+char[] arrayCiudad = ciudad.ToCharArray();
+Array.Reverse(arrayCiudad);
+
+string resultado = "";
+
+foreach (char elemento in arrayNomre)
+{
+resultado += elemento;
+}
+
+resultado += " ";
+foreach (char elemento in arrayApellidos)
+{
+resultado += elemento;
+}
+
+resultado += " ";
+
+foreach (char elemento in arrayCiudad)
+{
+resultado += elemento;
+}
+Console.WriteLine("Resultados: " + resultado);
+
+Observemos que hay código repetido. Por ejemplo, la operación de poner la cadena al revés es la misma en los tres caoss, por lo que hay código duplicado.
+
+No es gravísimo tener código duplicado. De hecho, nunca se podrá eliminar completamente el código duplicado, pero es muy porbable que el código duplicado sea el resultado de copiar y pegar. Una vez que hemos inventado la rueda en el código se nos ocurre que podemos copiarlo allí donde lo necesitemos y hacerle unos cambios mínimos para ajustarlo a cada caso. sin embargo, es muy probable que se nos olvide hacer alguno de esos cambios y empecemos a generar errores en la aplicación.
+
+otro inconveniente de copiar y pegar el código múltples veces es que si tenemos que actualizar la aplicación deberemos cambiar lo mismo muchas veces en el código.
+
+Por lo tanto, vamos a intentar separar el código que se repite, ponerlo en su propio método y luego llamar a ese método tantas veces como haga falta. Las ventajas son:
+
+- Reducir la necesidad de copiar y pegar.
+- Los cambios en el código se hacen en un único lugar.
+- Darle un nombre significativo proporcionará una mejor comprensión de lo que hace esa tarea.
+
+Por lo tanto, los métodos nos ayudarán a conseguir un código legible, claro, limio y fácil de mantener.
+
+Empeemos con la transformación. Crearemos um método que se llamará InvertirCadena y en su cuerpo copiaremos las líneas que convierten una cadena en un array de carcteres y el foreach que lo invierte. Para asegurarnos de que funciona haremos algún que otro cambio de variable con f2, crearemos una cadan con el texto Hola Mundo y haremos que dentro del foreach se muestre cada elemento en la pantalla e invocaremos al método desde fuera. El código que teníamos hasta ahora no lo borraremos, sino que lo dejaremos comentado debajo y lo iremos rescatando conforme se necesite. Por ahora, el código sin comentar queda así:
+
+static void InvertirCadena()
+{
+	string mensaje = "Hola Mundo";
+	char[] arrayMensaje = mensaje.ToCharArray();
+	Array.Reverse(arrayMensaje);
+	foreach (char elemento in arrayMensaje)
+	{
+		Console.Write(elemento);
+	}
+}
+InvertirCadena();
+Console.WriteLine();
+
+Ahora sabemos que la lógica del método funciona, pero no es muy interesante porque no vamos a imprimir Hola Mundo muchas veces en una aplicación. Lo bueno sería que quien llamara al método le dijera cuál es la cadena que quiere ver al revés. Para eso pondremos entre los paréntesis un tipo de dato y un nombre como si estuviéramos creando una variable.
+
+Una vez hechos esos cambios descomentaremos las líneas que nos permiten recoger el nombre, los apellidos y la ciudad y llamaremos al método InvertirCadena 3 veces. En cada línea le pasaremos una de las tres cadenas. Además, cambiaremos la impresión del cambio de línea para que se haga al final. Ahora el código queda así:
+
+static void InvertirCadena(string mensaje)
+{
+	char[] arrayMensaje = mensaje.ToCharArray();
+	Array.Reverse(arrayMensaje);
+	foreach (char elemento in arrayMensaje)
+	{
+		Console.Write(elemento);
+	}
+}
+Console.WriteLine("El juego del nombre");
+
+Console.Write("Tu nombre: ");
+string nombre = Console.ReadLine();
+
+Console.Write("Tus apellidos: ");
+string apellidos = Console.ReadLine();
+
+Console.Write("La ciudad en la que naciste: ");
+string ciudad = Console.ReadLine();
+
+InvertirCadena(nombre);
+InvertirCadena(apellidos);
+InvertirCadena(ciudad);
+Console.WriteLine();
+
+El programa invierte las cadenas, pero no deja espacio entre ellas. Éste es un gran ejemplo de cómo solucionar un problema cambiando código en un único lugar. todo lo que hay que hacer es escribir un espacio con Console.Write justo después del bucle. Así queda el código:
+
+static void InvertirCadena(string mensaje)
+{
+	char[] arrayMensaje = mensaje.ToCharArray();
+	Array.Reverse(arrayMensaje);
+	foreach (char elemento in arrayMensaje)
+	{
+		Console.Write(elemento);
+	}
+	Console.Write(" ");
+}
+Console.WriteLine("El juego del nombre");
+
+Console.Write("Tu nombre: ");
+string nombre = Console.ReadLine();
+
+Console.Write("Tus apellidos: ");
+string apellidos = Console.ReadLine();
+
+Console.Write("La ciudad en la que naciste: ");
+string ciudad = Console.ReadLine();
+
+InvertirCadena(nombre);
+InvertirCadena(apellidos);
+InvertirCadena(ciudad);
+Console.WriteLine();
+
+El programa funciona como antes, pero todavía hay una mejora por hacer. Lo que hace actualmente el método InvertirCadena es invertir una cadena e imprimir el resultado en la pantalla. Podríamos hacer que solo invirtiera la cadena y luego ya lo imprimiremos en la pantalla. Así podríamos describir mucho mejor lo que hace cada cosa en el programa.
+
+Hasta ahora hemos usado la palabra void que más o menos significa: haz lo que tengas que hacer, pero no le digas nada a quien te llamó porque no le interesa. pero ahora lo que queremos es que InvertirCadena no imprima nada en la pantalla, sino que le devuelva la cadena invertida a quien le llamó. Para ello:
+
+- Cambiaremos void por string, porque es el tipo de dato de lo que se va a devolver.
+- Utilizaremos la palabra clave return y le pasaremos la creación de un nuevo string a partir del array usando el método Concat de la clase string.
+
+Esto hace que podamos guardar las cadenas invertidas en variables para usarlas en el mensaje que se imprime. Además, el uso de Console.WriteLine nos enseñará que podemos dividir la línea de código por donde queramos para facilitar nuestra legibilidad, porque a C# lo único que le importa es el punto y coma. el código ahora queda así:
+
+static string InvertirCadena(string mensaje)
+{
+	char[] arrayMensaje = mensaje.ToCharArray();
+	Array.Reverse(arrayMensaje);
+	return string.Concat(arrayMensaje);
+}
+Console.WriteLine("El juego del nombre");
+
+Console.Write("Tu nombre: ");
+string nombre = Console.ReadLine();
+
+Console.Write("Tus apellidos: ");
+string apellidos = Console.ReadLine();
+
+Console.Write("La ciudad en la que naciste: ");
+string ciudad = Console.ReadLine();
+
+string nombreAlReves = InvertirCadena(nombre);
+string apellidosAlReves = InvertirCadena(apellidos);
+string ciudadAlReves = InvertirCadena(ciudad);
+Console.WriteLine("Resultados: {0} {1} {2}",
+nombreAlReves,
+apellidosAlReves,
+ciudadAlReves);
