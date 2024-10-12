@@ -1,0 +1,38 @@
+﻿Clases
+
+Habíamos dicho al principio que una clase es un contenedor para métodos que están relacionados. Tenemos como ejemplo la clase Console que tiene métodos como Clear, Write, WriteLine o ReadLine. Todos estos métodos tienen que ver con la manipulación de la ventana de la consola, así que tiene sentido ponerlos en la imsma clase.
+
+Esto fue una simplificación intencionada de la explicación de una clase. En primer lugar, porque quien nunca haya programado necesita sentir cierta confianza en que pued hacerlo y, en segundo lugar, porque la explicación de qué es una clase pertenece al estilo de la programación orientada a objetos, cosa que no mucha gente es capaz de entender a la primera.
+
+aunque no lo sepamos, todo el código que hemos escrito hasta ahora estaba dentro de una clase. Ahora solo daremos algunos detalles que hasta ahora no sabías sobre las clases para que te marques el objetivo de encontrar lo que necesites usar entre las propiedades y los métodos de las clases que .NET ya tiene definidas. Hablaremos de los conceptos relacionados con las clases creando las nuestras porpias.
+
+Supongamos que tenemos un concesionario y queremos vender coches y queremos crear una aplicación que nos ayude a llevar el control de los coches que tenemos. Ncesitaríamos un grupo de variables para gestionar cierta información sobre cada coche (como la marca, el modelo o la matrícula). Para eso crearíamos variables como Coche1Marca o Coche1Modelo. ¿Pero qué pasaría si necesitáramos un segundo coche? podríamos pensar en crer variables como Coche2Marca o Coche2Modelo. ¿Y para un tercer coche? ¿y si decidimos que también deberíamos saber el color del coche? Podemos apreciar que no estamos utilizando el enfoque adecuado para recoger información que debe estar agrupada porque pertenece a la misma entidad. Necesitamos una forma de tener toda la información relativa a un coche en su propio contenedor.
+
+Vamos a definir una clase que tenga unas propiedades que definan a cualquier coche que podamos tener en el concesionario. Para eso escribimos class seguido del nombre de nuestra clase y las llaves de apertura y cierre. Una vez hecho esto crearemos las propiedades dentro de las llaves. Para eso escribiremos la palabra prop y pulsaremos tab. Entonces el editor nos habrá creado una propiedad por defecto y nos habrá dejado el foco en el tipo de dato. rellemanmos el que queramos y pulsamos tab dos veces para escribir el nombre de la variable. La marca, el modelo y el color son strings, mientras que el año es int. Observemos que hemos puesto anio porque la ñ es un caracter especial que podría dar problemas.
+
+Si al revisar los errores nos encontramos con advertencias diciendo que una propiedad no puede tener un valor nulo pulsaremos el menú de contexto y le diremos que lo corrija para que acepte valores nulos y, automáticamente, junto al tipo de dato aparecerá un signo de interrogación.
+
+Si lo hemos hecho todo bien el código quedará así:
+
+class Coche
+{
+	public string? marca { get; set; }
+	public string? modelo { get; set; }
+	public int anio { get; set; }
+	public string? color { get; set; }
+}
+
+Con esto ya tenemos un modelo para definir coches (la clase), pero necesitaremos crear cada uno de los coches concretos que tenemos en el concesionario (objetos. Para eso podemos usar nuestra clase Coceh como si fuera un tipo de dato y poner a la derecha del igual el new y el nombre de la clase que ya hemos usado otras veces. La creación de los objetos tiene que estar antes de la definición de la clase o, dicho de otra manera, la definición de la clase debe ir al final del archivo. El código completo quedaría así:
+
+Coche miCoche = new Coche();
+
+class Coche
+{
+	public string? marca { get; set; }
+	public string? modelo { get; set; }
+	public int anio { get; set; }
+	public string? color { get; set; }
+}
+
+Es muy importante retener la diferencia entre la clase y el objeto. La clase es el modelo genérico que nos permite "fabricar" coches. El objeto (en este caso miCoche) es un coche concreto que hemos fabricado gracias a haber definido la clase.
+
