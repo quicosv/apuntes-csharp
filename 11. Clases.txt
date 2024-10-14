@@ -36,3 +36,112 @@ class Coche
 
 Es muy importante retener la diferencia entre la clase y el objeto. La clase es el modelo genérico que nos permite "fabricar" coches. El objeto (en este caso miCoche) es un coche concreto que hemos fabricado gracias a haber definido la clase.
 
+digamos que la palabra new sería como la fábrica que permite poner el nuevo cohe en la memoria del ordenador.
+
+Ahora que tenemos el coche podemos dar valores a sus propiedades con la sintaxis del punto.
+
+Coche miCoche = new Coche();
+miCoche.marca = "Seat";
+miCoche.modelo = "Toledo";
+miCoche.anio = 2007;
+miCoche.color = "verde";
+
+class Coche
+{
+	public string? marca { get; set; }
+	public string? modelo { get; set; }
+	public int anio { get; set; }
+	public string? color { get; set; }
+}
+
+Tamibén podemos imprimir en la consola los valores con la misma sintaxis. Aquí está el programa completo.
+
+Coche miCoche = new Coche();
+miCoche.marca = "Seat";
+miCoche.modelo = "Toledo";
+miCoche.anio = 2007;
+miCoche.color = "verde";
+Console.WriteLine("Tenemos un {0} {1} {2} fabricado en {3}.",
+miCoche.marca,
+miCoche.modelo,
+miCoche.color,
+miCoche.anio);
+
+class Coche
+{
+	public string? marca { get; set; }
+	public string? modelo { get; set; }
+	public int anio { get; set; }
+	public string? color { get; set; }
+}
+
+Las palabras clave get y set que se han puesto automáticamente cuando hemos definidos las propiedades son las que nos han permitido hacer este programa. Set es la que nos ha permitido dar valor a cada propiedad del objeto y get es la que nos ha permitido obtener el valor.
+
+Ahora podríamos usar el coche como cualquier otro tipo de dato. Por ejemplo, vamos a hacer una función que acepte un coche como parámetro y nos devuelva el valor de mercado. Para eso utilizaremos el tipo de datos decimal, que es el que tiene más precisión y se suele usar para trabajar con unidades monetarias. También modificaremos el mensaje que se imprime en la pantalla para incluir dicho valor. Aquí está el código completo.
+
+Coche miCoche = new Coche();
+miCoche.marca = "Seat";
+miCoche.modelo = "Toledo";
+miCoche.anio = 2007;
+miCoche.color = "verde";
+decimal valor = DeterminarValorDeMercado(miCoche);
+Console.WriteLine("Tenemos un {0} {1} {2} fabricado en {3} que vale {4:c}.",
+miCoche.marca,
+miCoche.modelo,
+miCoche.color,
+miCoche.anio,
+valor);
+
+static decimal DeterminarValorDeMercado(Coche coche)
+{
+	decimal valor = 15000.00M;
+	return valor;
+}
+
+class Coche
+{
+	public string? marca { get; set; }
+	public string? modelo { get; set; }
+	public int anio { get; set; }
+	public string? color { get; set; }
+}
+
+A la hora de definir el parámetro en la función hemos usasdo Coche en mayúscula para la clase y coche en minúscula para el objeto específico que recibe la función. Es una convención que se suele seguir en estos casos aprovechando que, como sabemos, C# distingue entre mayúsculas y minúsculas.
+
+Crear métodos en la clase
+
+Como en nuestra clase coche está toda la información necesaria para determinar el valor de mercado, vamos a hacer este método dentro de la clase. supondremos que el coche vale 10000 si fue fabricado a partir de 1990 y que solo vale 2000 si fue fabricado antes de ese año. Eliminaremos el método que estaba fuera e imprimiremos el valor de merado del coche que hemos creado usando este nuevo método. El código quea así:
+
+Coche miCoche = new Coche();
+miCoche.marca = "Seat";
+miCoche.modelo = "Toledo";
+miCoche.anio = 2007;
+miCoche.color = "verde";
+Console.WriteLine("Tenemos un {0} {1} {2} fabricado en {3} que vale {4:c}.",
+miCoche.marca,
+miCoche.modelo,
+miCoche.color,
+miCoche.anio,
+miCoche.DeterminarValorDemercado());
+
+class Coche
+{
+	public string? marca { get; set; }
+	public string? modelo { get; set; }
+	public int anio { get; set; }
+
+	public string? color { get; set; }
+	public decimal DeterminarValorDemercado()
+	{
+		decimal valor;
+		if (anio >= 1990)
+		{
+			valor = 10000;
+		}
+		else
+		{
+			valor = 2000;
+		}
+		return valor;
+	}
+}
