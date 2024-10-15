@@ -10,18 +10,15 @@ La barra invertida
 
 La barre invertida se usa para introducir las denominadas "secuencias de escape". esto nos permite insertar en las cadenas caracteres especiales. Por ejemplo, si quisiéramos mostrar en pantalla el carácter de comillas dobles necesitamos una forma de decirle a C# que no estamos empezando ni terminando una cadena. Para eso tenemos que poner una barra invertida delante de cada signo de comillas dobles que queramos insertar.
 
-string miCadena = "Mi \"supuesta\" vida.";
-Console.WriteLine(miCadena);
+(Código: carpeta 9 archivo 1)
 
-con \n insertamos una nueva línea.
+Con \n insertamos una nueva línea.
 
-string miCadena = "¿y si necesitamos una\nsegunda línea?";
-Console.WriteLine(miCadena);
+(Código: carpeta 9 archivo 2)
 
 Para insertar una barra invertida tendríamos que poner dos barras invertidas seguidas.
 
-string miCadena = "Eso debe estar en c:\\.";
-Console.WriteLine(miCadena);
+(Código: carpeta 9 archivo 3)
 
 Otra opción para solucionar estos problemas es poner un signo de arroba delante del de abrir comillas. Aquí sucedería lo siguiente:
 
@@ -31,101 +28,66 @@ Otra opción para solucionar estos problemas es poner un signo de arroba delante
 
 Un ejemplo que lo combina todo:
 
-string miCadena = @"Esa ""cosa"" debería estar en:
-c:\.";
-Console.WriteLine(miCadena);
+(Código: carpeta 9 archivo 4)
 
 Formatear cadenas
 
-Ya habíamos hablado de cómo sustituir cierto texto en cadenas con ejemplos como ésts:
+Ya habíamos hablado de cómo sustituir cierto texto en cadenas con ejemplos como éstos:
 
-string miCadena = string.Format("{0} significa {1} en {2}.", "First","primero","inglés");
-Console.WriteLine(miCadena);
+(Código: carpeta 9 archivo 5)
 
-Podemos usar algunas letras mayúsuclas junto a los códigos de sustitución para formatear las cadenas. He aquí algunos ejemplos:
+Podemos usar algunas letras mayúsculas junto a los códigos de sustitución para formatear las cadenas. He aquí algunos ejemplos:
 
 Si al lado del número ponemos dos puntos y una C estaremos representando una cantidad en la unidad monetaria que tenga configurado el ordenador.
 
-string miCadena = string.Format("Te va a costar {0:C}.",19.85);
-Console.WriteLine(miCadena);
+(Código: carpeta 9 archivo 6)
 
 Si ponemos dos puntos y una N representaremos números grandes:
 
-string miCadena = string.Format("Un número muy grande es {0:N}.",1234567890);
-Console.WriteLine(miCadena);
+(Código: carpeta 9 archivo 7)
 
 También se puede usar la P para porcentajes.
 
-string miCadena = string.Format("Porcentaje: {0:P}.",.123);
-Console.WriteLine(miCadena);
+(Código: carpeta 9 archivo 8)
 
 También podemos mostrar un número con nuestro propio formato personalizado. Para ello bastará con sustituir cada caracter por el símbolo de almohadilla. Supongamos que el usuario es de los que se aprende su teléfono móvil con un grupo donde están los tres primeros números y luego el resto por parejas. Entonces lo pondríamos así:
 
-string miCadena = string.Format("Tu móvil es: {0:### ## ## ##}.",654321789);
-Console.WriteLine(miCadena);
+(Código: carpeta 9 archivo 9)
 
 Transformación de cadenas
 
 el método substring nos permite extraer un trozo de una cadena. Si pasamos un único argumento, éste será el comienzo de la cadena a extraer. Recordemos que el primer caracter de la cadena ocupa la posición 0.
 
-string miCadena = "En un lugar de la Mancha";
-miCadena=miCadena.Substring(6);
-Console.WriteLine(miCadena);
+(Código: carpeta 9 archivo 10)
 
 Esto extraería "lugar del aMancha".
 
 Con un segundo argumento podemos especificar la cantidad de caracteres a extraer. Por ejemplo, para obtener la palabra "lugar" haríamos así:
 
-string miCadena = "En un lugar de la Mancha";
-miCadena=miCadena.Substring(6,5);
-Console.WriteLine(miCadena);
+(Código: carpeta 9 archivo 11)
 
 El método toUpper lo convierte todo a mayúsculas.
 
-string miCadena = "En un lugar de la Mancha";
-miCadena = miCadena.ToUpper();
-Console.WriteLine(miCadena);
+(Código: carpeta 9 archivo 12)
 
 El método Replace toma dos argumentos: la cadena a reemplazar y la cadena por la que será reemplazada. Por ejemplo, aquí sustituimos cada espacio por un par de guiones.
 
-string miCadena = "En un lugar de la Mancha";
-miCadena = miCadena.Replace(" ","--");
-Console.WriteLine(miCadena);
+(Código: carpeta 9 archivo 13)
 
-Podemos eliminar una parte de la cadena con el método Remove. Los argumentos funcinoan igual que en Substring. Por ejemplo, vamos a quitar la palabra "lugar" y el espacio que hay después de ella.
+Podemos eliminar una parte de la cadena con el método Remove. Los argumentos funcionan igual que en Substring. Por ejemplo, vamos a quitar la palabra "lugar" y el espacio que hay después de ella.
 
-string miCadena = "En un lugar de la Mancha";
-miCadena = miCadena.Remove(6,6);
-Console.WriteLine(miCadena);
+(Código: carpeta 9 archivo 14)
 
 Si hay espacios al principio y/o al final de la cadena podemos quitarlos con el método Trim. Para demostrarlo vamos a añadir espacios tanto al principio como al final de la cadena y vamos a usar String.Format para mostrar la longitud de la cadena antes y después de aplicar Trim.
 
-string miCadena = "    En un lugar de la Mancha     ";
-miCadena = string.Format("Antes había {0} caracteres y hora hay {1} caracteres.",
-miCadena.Length,
-miCadena.Trim().Length);
-Console.WriteLine(miCadena);
+(Código: carpeta 9 archivo 15)
 
-Hablemos ahora dle operador +, que sirve para concatenar.
+Hablemos ahora del operador +, que sirve para concatenar.
 
-string miCadena = "Números: ";
-for (int i = 0; i < 100; i++)
-{
-	miCadena += "--" + i.ToString();
-}
-Console.WriteLine(miCadena);
+(Código: carpeta 9 archivo 16)
 
-Parece que siempre se está trabajando con la misma variable, pero como las cadenas son inmutbles, en realidad por cada concatenación se hace una copia del original añadiendo lo que se concatena y luego se borra el original. Por lo tanto, en este caso, el procedimiento se repite 100 veces. Este proceso es muy ineficiente. Para solucionar esto, en lugar de usar el tipo string usaremos StringBuilder. Hay que crearlo con la misma sintaxis extraña que vimos para los números aleatorios. Esta clase tiene un método Append para añadir lo que queramos.
+Parece que siempre se está trabajando con la misma variable, pero como las cadenas son inmutables, en realidad por cada concatenación se hace una copia del original añadiendo lo que se concatena y luego se borra el original. Por lo tanto, en este caso, el procedimiento se repite 100 veces. Este proceso es muy ineficiente. Para solucionar esto, en lugar de usar el tipo string usaremos StringBuilder. Hay que crearlo con la misma sintaxis extraña que vimos para los números aleatorios. Esta clase tiene un método Append para añadir lo que queramos.
 
-using System.Text;
-
-StringBuilder miCadena = new StringBuilder();
-for (int i = 0; i < 100; i++)
-{
-	miCadena.Append("--");
-	miCadena.Append(i);
-}
-Console.WriteLine(miCadena);
+(Código: carpeta 9 archivo 17)
 
 La línea que aparece al principio y que empieza por using la genera automáticamente el programa al crear el StringBuilder.
-
