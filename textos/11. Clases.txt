@@ -1,12 +1,12 @@
 ﻿Clases
 
-Habíamos dicho al principio que una clase es un contenedor para métodos que están relacionados. Tenemos como ejemplo la clase Console que tiene métodos como Clear, Write, WriteLine o ReadLine. Todos estos métodos tienen que ver con la manipulación de la ventana de la consola, así que tiene sentido ponerlos en la imsma clase.
+Habíamos dicho al principio que una clase es un contenedor para métodos que están relacionados. Tenemos como ejemplo la clase Console que tiene métodos como Clear, Write, WriteLine o ReadLine. Todos estos métodos tienen que ver con la manipulación de la ventana de la consola, así que tiene sentido ponerlos en la misma clase.
 
 Esto fue una simplificación intencionada de la explicación de una clase. En primer lugar, porque quien nunca haya programado necesita sentir cierta confianza en que pued hacerlo y, en segundo lugar, porque la explicación de qué es una clase pertenece al estilo de la programación orientada a objetos, cosa que no mucha gente es capaz de entender a la primera.
 
-aunque no lo sepamos, todo el código que hemos escrito hasta ahora estaba dentro de una clase. Ahora solo daremos algunos detalles que hasta ahora no sabías sobre las clases para que te marques el objetivo de encontrar lo que necesites usar entre las propiedades y los métodos de las clases que .NET ya tiene definidas. Hablaremos de los conceptos relacionados con las clases creando las nuestras porpias.
+aunque no lo sepamos, todo el código que hemos escrito hasta ahora estaba dentro de una clase. Ahora solo daremos algunos detalles que hasta ahora no sabías sobre las clases para que te marques el objetivo de encontrar lo que necesites usar entre las propiedades y los métodos de las clases que .NET ya tiene definidas. Hablaremos de los conceptos relacionados con las clases creando las nuestras propias.
 
-Supongamos que tenemos un concesionario y queremos vender coches y queremos crear una aplicación que nos ayude a llevar el control de los coches que tenemos. Ncesitaríamos un grupo de variables para gestionar cierta información sobre cada coche (como la marca, el modelo o la matrícula). Para eso crearíamos variables como Coche1Marca o Coche1Modelo. ¿Pero qué pasaría si necesitáramos un segundo coche? podríamos pensar en crer variables como Coche2Marca o Coche2Modelo. ¿Y para un tercer coche? ¿y si decidimos que también deberíamos saber el color del coche? Podemos apreciar que no estamos utilizando el enfoque adecuado para recoger información que debe estar agrupada porque pertenece a la misma entidad. Necesitamos una forma de tener toda la información relativa a un coche en su propio contenedor.
+Supongamos que tenemos un concesionario y queremos vender coches y queremos crear una aplicación que nos ayude a llevar el control de los coches que tenemos. Necesitaríamos un grupo de variables para gestionar cierta información sobre cada coche (como la marca, el modelo o la matrícula). Para eso crearíamos variables como Coche1Marca o Coche1Modelo. ¿Pero qué pasaría si necesitáramos un segundo coche? podríamos pensar en crear variables como Coche2Marca o Coche2Modelo. ¿Y para un tercer coche? ¿y si decidimos que también deberíamos saber el color del coche? Podemos apreciar que no estamos utilizando el enfoque adecuado para recoger información que debe estar agrupada porque pertenece a la misma entidad. Necesitamos una forma de tener toda la información relativa a un coche en su propio contenedor.
 
 Vamos a definir una clase que tenga unas propiedades que definan a cualquier coche que podamos tener en el concesionario. Para eso escribimos class seguido del nombre de nuestra clase y las llaves de apertura y cierre. Una vez hecho esto crearemos las propiedades dentro de las llaves. Para eso escribiremos la palabra prop y pulsaremos tab. Entonces el editor nos habrá creado una propiedad por defecto y nos habrá dejado el foco en el tipo de dato. rellemanmos el que queramos y pulsamos tab dos veces para escribir el nombre de la variable. La marca, el modelo y el color son strings, mientras que el año es int. Observemos que hemos puesto anio porque la ñ es un caracter especial que podría dar problemas.
 
@@ -14,134 +14,34 @@ Si al revisar los errores nos encontramos con advertencias diciendo que una prop
 
 Si lo hemos hecho todo bien el código quedará así:
 
-class Coche
-{
-	public string? marca { get; set; }
-	public string? modelo { get; set; }
-	public int anio { get; set; }
-	public string? color { get; set; }
-}
+(Código: carpeta 11 archivo 1)
 
-Con esto ya tenemos un modelo para definir coches (la clase), pero necesitaremos crear cada uno de los coches concretos que tenemos en el concesionario (objetos. Para eso podemos usar nuestra clase Coceh como si fuera un tipo de dato y poner a la derecha del igual el new y el nombre de la clase que ya hemos usado otras veces. La creación de los objetos tiene que estar antes de la definición de la clase o, dicho de otra manera, la definición de la clase debe ir al final del archivo. El código completo quedaría así:
+Con esto ya tenemos un modelo para definir coches (la clase), pero necesitaremos crear cada uno de los coches concretos que tenemos en el concesionario (objetos. Para eso podemos usar nuestra clase Coche como si fuera un tipo de dato y poner a la derecha del igual el new y el nombre de la clase que ya hemos usado otras veces. La creación de los objetos tiene que estar antes de la definición de la clase o, dicho de otra manera, la definición de la clase debe ir al final del archivo. El código completo quedaría así:
 
-Coche miCoche = new Coche();
-
-class Coche
-{
-	public string? marca { get; set; }
-	public string? modelo { get; set; }
-	public int anio { get; set; }
-	public string? color { get; set; }
-}
+(Código: carpeta 11 archivo 2)
 
 Es muy importante retener la diferencia entre la clase y el objeto. La clase es el modelo genérico que nos permite "fabricar" coches. El objeto (en este caso miCoche) es un coche concreto que hemos fabricado gracias a haber definido la clase.
 
-digamos que la palabra new sería como la fábrica que permite poner el nuevo cohe en la memoria del ordenador.
+digamos que la palabra new sería como la fábrica que permite poner el nuevo coche en la memoria del ordenador.
 
 Ahora que tenemos el coche podemos dar valores a sus propiedades con la sintaxis del punto.
 
-Coche miCoche = new Coche();
-miCoche.marca = "Seat";
-miCoche.modelo = "Toledo";
-miCoche.anio = 2007;
-miCoche.color = "verde";
+(Código: carpeta 11 archivo 3)
 
-class Coche
-{
-	public string? marca { get; set; }
-	public string? modelo { get; set; }
-	public int anio { get; set; }
-	public string? color { get; set; }
-}
+También podemos imprimir en la consola los valores con la misma sintaxis. Aquí está el programa completo.
 
-Tamibén podemos imprimir en la consola los valores con la misma sintaxis. Aquí está el programa completo.
+(Código: carpeta 11 archivo 4)
 
-Coche miCoche = new Coche();
-miCoche.marca = "Seat";
-miCoche.modelo = "Toledo";
-miCoche.anio = 2007;
-miCoche.color = "verde";
-Console.WriteLine("Tenemos un {0} {1} {2} fabricado en {3}.",
-miCoche.marca,
-miCoche.modelo,
-miCoche.color,
-miCoche.anio);
-
-class Coche
-{
-	public string? marca { get; set; }
-	public string? modelo { get; set; }
-	public int anio { get; set; }
-	public string? color { get; set; }
-}
-
-Las palabras clave get y set que se han puesto automáticamente cuando hemos definidos las propiedades son las que nos han permitido hacer este programa. Set es la que nos ha permitido dar valor a cada propiedad del objeto y get es la que nos ha permitido obtener el valor.
+Las palabras clave get y set que se han puesto automáticamente cuando hemos definido las propiedades son las que nos han permitido hacer este programa. Set es la que nos ha permitido dar valor a cada propiedad del objeto y get es la que nos ha permitido obtener el valor.
 
 Ahora podríamos usar el coche como cualquier otro tipo de dato. Por ejemplo, vamos a hacer una función que acepte un coche como parámetro y nos devuelva el valor de mercado. Para eso utilizaremos el tipo de datos decimal, que es el que tiene más precisión y se suele usar para trabajar con unidades monetarias. También modificaremos el mensaje que se imprime en la pantalla para incluir dicho valor. Aquí está el código completo.
 
-Coche miCoche = new Coche();
-miCoche.marca = "Seat";
-miCoche.modelo = "Toledo";
-miCoche.anio = 2007;
-miCoche.color = "verde";
-decimal valor = DeterminarValorDeMercado(miCoche);
-Console.WriteLine("Tenemos un {0} {1} {2} fabricado en {3} que vale {4:c}.",
-miCoche.marca,
-miCoche.modelo,
-miCoche.color,
-miCoche.anio,
-valor);
-
-static decimal DeterminarValorDeMercado(Coche coche)
-{
-	decimal valor = 15000.00M;
-	return valor;
-}
-
-class Coche
-{
-	public string? marca { get; set; }
-	public string? modelo { get; set; }
-	public int anio { get; set; }
-	public string? color { get; set; }
-}
+(Código: carpeta 11 archivo 5)
 
 A la hora de definir el parámetro en la función hemos usasdo Coche en mayúscula para la clase y coche en minúscula para el objeto específico que recibe la función. Es una convención que se suele seguir en estos casos aprovechando que, como sabemos, C# distingue entre mayúsculas y minúsculas.
 
 Crear métodos en la clase
 
-Como en nuestra clase coche está toda la información necesaria para determinar el valor de mercado, vamos a hacer este método dentro de la clase. supondremos que el coche vale 10000 si fue fabricado a partir de 1990 y que solo vale 2000 si fue fabricado antes de ese año. Eliminaremos el método que estaba fuera e imprimiremos el valor de merado del coche que hemos creado usando este nuevo método. El código quea así:
+Como en nuestra clase coche está toda la información necesaria para determinar el valor de mercado, vamos a hacer este método dentro de la clase. supondremos que el coche vale 10000 si fue fabricado a partir de 1990 y que solo vale 2000 si fue fabricado antes de ese año. Eliminaremos el método que estaba fuera e imprimiremos el valor de mercado del coche que hemos creado usando este nuevo método. El código quea así:
 
-Coche miCoche = new Coche();
-miCoche.marca = "Seat";
-miCoche.modelo = "Toledo";
-miCoche.anio = 2007;
-miCoche.color = "verde";
-Console.WriteLine("Tenemos un {0} {1} {2} fabricado en {3} que vale {4:c}.",
-miCoche.marca,
-miCoche.modelo,
-miCoche.color,
-miCoche.anio,
-miCoche.DeterminarValorDemercado());
-
-class Coche
-{
-	public string? marca { get; set; }
-	public string? modelo { get; set; }
-	public int anio { get; set; }
-
-	public string? color { get; set; }
-	public decimal DeterminarValorDemercado()
-	{
-		decimal valor;
-		if (anio >= 1990)
-		{
-			valor = 10000;
-		}
-		else
-		{
-			valor = 2000;
-		}
-		return valor;
-	}
-}
+(Código: carpeta 11 archivo 6)
