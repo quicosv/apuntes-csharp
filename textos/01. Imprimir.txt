@@ -1,16 +1,17 @@
-﻿/* 
-Crea una carpeta vacía en la que almacenar proyectos y ábrela con Visual Stuido Code.
+﻿Crea una carpeta vacía en la que almacenar proyectos y ábrela con Visual Stuido Code.
 
 Se crea el proyecto con .NET: Nuevo Proyecto en la paleta.
 
-Le llamaremos PrimeraAplicacion con la P de Primera y la A inicial de Aplicacion en mayúscula. Además, no tiene que haber ni acentos ni espacios.
+Le llamaremos PrimeraAplicacion con la P de Primera y la A inicial de Aplicacion en mayúscula. Además, no tiene que haber ni acentos ni espacios. Debe ser una aplicación de consola.
+
+Una vez creado el proyecto editaremos el código en Program.cs.
 
 Hola mundo
 
 Asegúrate de saber cómo se escriben los paréntesis, corchetes, llaves y los signos de menorque y mayor que.
- */
-Console.WriteLine("Hola mundo");
-/* 
+
+(Código: Carpeta1 archivo 1)
+
 Cosas de las que hay que asegurarse.
 
 La C de Console está en mayúscula.
@@ -20,7 +21,23 @@ Hola mundo está entre comillas dobles.
 Ese texto entre comillas dobles está entre paréntesis.
 La línea termina con un punto y coma.
 
-Se guarda con control s. Hay varias formas de ejecutarlo, pero lo más fácil es pulsar control f5.
+se guarda con contrl s. Se puede ejecutar desde dentro o desde fuera de Visual Studio Code.
+
+Ejecución desde dentro
+
+Pulsar control f5.
+Cuando se hayan completado todos los procesos y haga un sonido pulsar contro ñ para ir a la terminal.
+Pulsar alt f2 para ir a la vista accesible y revisar los mensajes con las flechas arriba y abajo.
+Pulsar escape para salir de la vista accesible.
+Pulsar control ñ para salir de la terminal y volver al editor.
+
+Ejecución desde fuera
+
+Pulsar control shift c para abrir una terminal externa o abrir la terminal de nuestra peferencia.
+Navegar con la terminal a la carpeta que contenga Program.cs, teniendo en cuenta que se crea una carpeta por cada proyecto.
+Ejecutar la aplicación con el siguiente comando:
+
+dotnet run
 
 Errores comunes
 
@@ -44,21 +61,25 @@ Entender la sintaxis del lenguaje es la mitad del trabajo. La otra mitad es aver
 
 Microsoft ya ha creado código para que podamos hacer tareas muy comunes como cálculos matemáticos, manipulación de textos, trabajo con fechas o envío de datos a través de la red. También se ha ocupado de que las aplicaciones se ejecuten de tal manera que el desarrollador sólo se ocupe de lo que debe hacer la aplicación y no de otras cosas como la forma en que debe interactuar con el sistema operativo, la memoria o le hardware  mientras se está ejecutando.
 
-Al poner Console.WriteLine("Hola mudno"); hemos usado un código que ya sabe cómo imprimir cosas en la puantalla. No nos tmeenmos que preocupar de cómo se hace porque es un método que creó alguien en Microsoft.
+Al poner Console.WriteLine("Hola mudno"); hemos usado un código que ya sabe cómo imprimir cosas en la puantalla. No nos tenemos que preocupar de cómo se hace porque es un método que creó alguien en Microsoft.
 
 Comentarios
 
-Los comentarios se usan para ignorar cirtas partes del código o para añadir notas para acordarnos de lo que hace el código.
+Los comentarios se usan para ignorar ciertas partes del código o para añadir notas para acordarnos de lo que hace el código.
 
 Los comentarios de una línea empiezan con dos barras (//) y llegan hasta el final de la línea.
 
+Los comentarios que ocupan más de una línea empiezan con una barra y un asterisco (/*) y terminan con un asterisco y una barra (*/).
+
 Un poco de sintaxis
 
-Además de las instrucciones (omo la que hemos escrito) tenemos los bloques. Los bloques van encerrados entre llaves y tienen un nombre y una finlaidad. Por ejemplo, quien programó Console.WriteLine para imprimir en la pantalla agrupó esas instrucciones en un bloque.
+Además de las instrucciones (como la que hemos escrito) tenemos los bloques. Los bloques van encerrados entre llaves y tienen un nombre y una finlaidad. Por ejemplo, quien programó Console.WriteLine para imprimir en la pantalla agrupó esas instrucciones en un bloque.
 
 Clases
 
-Podemos pensar que una clase es un contenedor para todos los métodos de la aplicación. Aunque no lo veamos, al crear el proyecto ya se ha creado una clase y un método y el código de este programa está dentro de ese método. Como ejemplo, diremos que WriteLine es un método de la clase Console.
+Podemos pensar que una clase es un contenedor para todos los métodos de la aplicación. Aunque no lo veamos, al crear el proyecto ya se ha creado una clase y un método y el código de este programa está dentro de ese método. A este método invisible lo llamaremos punto de entrada. Nunca podremos llamarlo (como hemos hecho con Console.WriteLine). Lo único que necesitamos saber es que las instrucciones que pertenezcan a este punto de entrada están en Program.cs y que él sabe que eso es lo primero que tiene que ejecutar.
+
+Como ejemplo de la jerarquía de clases y métodos, diremos que WriteLine es un método de la clase Console.
 
 namespaces
 
@@ -66,7 +87,7 @@ Un namespace es el nivel jerárquico superior. Así que los namespaces agrupan c
 
 Los paréntesis que siguen al nombre del método significan: ejecútalo ahora pasándole la información que hemos puesto dentro de los paréntesis. Esta información se llama argumentos. Por lo tanto, cuando veamos paréntesis sabremos que se está ejecutando un método.
 
-El punto y coma es el separador de instrucciones. Esto significa que podríamos poner varias instrucciones en una misma línea y que podríamos partir una instrucción larga en varias líneas. Cuando C# quiere saber dónde termina una instruccioón solo busca el punto y coma.
+El punto y coma es el separador de instrucciones. Esto significa que podríamos poner varias instrucciones en una misma línea y que podríamos partir una instrucción larga en varias líneas. Cuando C# quiere saber dónde termina una instrucción solo busca el punto y coma.
 
 El nivel de indentación que da Visual Studio Code es completamente opcional, pero ayuda a que el código sea más legible, porque sabemos qué va dentro de cada contenedor.
 
@@ -78,11 +99,10 @@ Pulsando sift tab varias veces desde el editor llegaremos a una presentación en
 
 El explorador de soluciones es la manera de navegar entre los archivos y las configuraciones que componen el proyecto. Los proyectos se ordenan en soluciones. Las soluciones pueden contener uno o más proyectos.
 
-Es momento de navegar con el explorador de Windows a la carpeta que tenemos abierta en Visual Sutido Code.
+Es momento de navegar con el explorador de Windows a la carpeta que tenemos abierta en Visual Studio Code.
 
 Se crea una carpeta llamada PrimeraAplicacion y un archivo PrimeraAplicacion.sln, que es la solución. se podría abrir el proyecto abriendo la solución.
 
 Dentro de la carpeta tenemos PrimeraAplicacion.csproj. Contiene referencias a todo lo que está asociado con el proyecto y configuraciones. Por jemplo, aquí es donde se especifica que cree el namespace global, la clase y el punto de entrada del que hemos hablado antes. Cualquier configuración que hagamos en el proyecto se guardará en este archivo.
 
 En la carpeta bin se guardará el ejecutable de la plicación, es decir, la versión que entiende el ordenador.
- */
