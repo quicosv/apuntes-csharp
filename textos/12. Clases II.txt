@@ -1,175 +1,34 @@
 ﻿Clases: segunda parte
+
 Cuando creamos un objeto se crea espacio en la memoria para poder almacenar ese objeto. Ese espacio está en una dirección de memoria concreta (que normalmente se representa con valores exadecimales) para que el ordenador lo pueda encontrar. Por lo tanto, lo primero que ocurre es que se busca una dirección de memoria que esté libre (que no contenga ningún dato) y que sea lo suficientemente grande como para almacenar esa instancia de nuestra clase. Cuando lo encuentra crea la instancia y copia en esa dirección de memoria los valores que tenga el objeto. Luego nos devuelve la dirección de memoria y nosotros la guardamos en el nombre que le hayamos dado a ese objeto. Por lo tanto, esa variable almacena una referencia (o una dirección) en la memoria del ordenador donde podemos acceder a ese objeto.
 
 Mientras se ejecuta el programa se está monitorizando constantemente si los objetos que están creados tienen referencias o no. Si no las tienen se deduce que ya no estamos interesados en ellos y se mandan al colector de basura (garbage collector en inglés).
 
 Veamos este código.
 
-Coche miCoche = new Coche();
-miCoche.marca = "Seat";
-miCoche.modelo = "Toledo";
-miCoche.anio = 2007;
-miCoche.color = "verde";
-Coche miOtroCoche;
-miOtroCoche = miCoche;
-class Coche
-{
-	public string? marca { get; set; }
-	public string? modelo { get; set; }
-	public int anio { get; set; }
+(Código: carpeta 12 archivo 1)
 
-	public string? color { get; set; }
-	public decimal DeterminarValorDemercado()
-	{
-		decimal valor;
-		if (anio >= 1990)
-		{
-			valor = 10000;
-		}
-		else
-		{
-			valor = 2000;
-		}
-		return valor;
-	}
-}
+Lo que hemos conseguido en este punto es que MiOtroCoche tenga una copia de la referencia de MiCoche. Para probar esto, vamos a completar el código para que imprima los valores de miOtroCoche.
 
-Lo que hemos conseguido en este punto es que MiOtroCoche tenga una copia de la referencia de MiCoche. Para probar esto, vamos a completar el código para que imprima lso valores de miOtroCoche.
-
-Coche miCoche = new Coche();
-miCoche.marca = "Seat";
-miCoche.modelo = "Toledo";
-miCoche.anio = 2007;
-miCoche.color = "verde";
-Coche miOtroCoche;
-miOtroCoche = miCoche;
-Console.WriteLine("Tenemos un {0} {1} de color {2} fabricado en {3}.",
-miOtroCoche.marca,
-miOtroCoche.modelo,
-miOtroCoche.color,
-miOtroCoche.anio);
-class Coche
-{
-	public string? marca { get; set; }
-	public string? modelo { get; set; }
-	public int anio { get; set; }
-
-	public string? color { get; set; }
-	public decimal DeterminarValorDemercado()
-	{
-		decimal valor;
-		if (anio >= 1990)
-		{
-			valor = 10000;
-		}
-		else
-		{
-			valor = 2000;
-		}
-		return valor;
-	}
-}
+(Código: carpeta 12 archivo 2)
 
 Como las dos variables guardan la misma referencia podemos acceder a las propiedades del coche. Pero hagamos otra cosa. Intentemos modificar las propiedades de miOtroCoche e imprimamos miCoche a ver qué ocurre. Así quedaría el código.
 
-Coche miCoche = new Coche();
-miCoche.marca = "Seat";
-miCoche.modelo = "Toledo";
-miCoche.anio = 2007;
-miCoche.color = "verde";
-Coche miOtroCoche;
-miOtroCoche = miCoche;
-Console.WriteLine("Mi otro coche es un {0} {1} de color {2} fabricado en {3}.",
-miOtroCoche.marca,
-miOtroCoche.modelo,
-miOtroCoche.color,
-miOtroCoche.anio);
-miOtroCoche.modelo = "Ibiza";
-Console.WriteLine("Mi coche original es un {0} {1} de color {2} fabricado en {3}.",
-miCoche.marca,
-miCoche.modelo,
-miCoche.color,
-miCoche.anio);
-class Coche
-{
-	public string? marca { get; set; }
-	public string? modelo { get; set; }
-	public int anio { get; set; }
-
-	public string? color { get; set; }
-	public decimal DeterminarValorDemercado()
-	{
-		decimal valor;
-		if (anio >= 1990)
-		{
-			valor = 10000;
-		}
-		else
-		{
-			valor = 2000;
-		}
-		return valor;
-	}
-}
-
+(Código: carpeta 12 archivo 3)
 
 Al ejecutarlo se ve que al impirmir miCoche tenemos el valor que hemos cambiado en miOtroCoche. Por lo tanto, esto enfatiza que las dos variables están apuntando al mismo lugar.
 
 Hay dos maneras de eliminar las referencias a los objetos. Una es que finalice la ejecución del bloque en el que hayan sido declarados. En nuesto caso, esto se cumplirá cuando finalice el programa, pero si hubiésemos declarado los objetos dnetro de un método perderíamos su referencia tan pronto como terminara la ejecución de dicho método.
 
 La otra forma de eliminar una referencia a un objeto es haciendo que su valor sea null. Para poder hacer esto hay que poner el signo de interrogación en el tipo en la declaración para que acepte el valor null.
-Coche? miCoche = new Coche();
-miCoche.marca = "Seat";
-miCoche.modelo = "Toledo";
-miCoche.anio = 2007;
-miCoche.color = "verde";
-Coche? miOtroCoche;
-miOtroCoche = miCoche;
-Console.WriteLine("Mi otro coche es un {0} {1} de color {2} fabricado en {3}.",
-miOtroCoche.marca,
-miOtroCoche.modelo,
-miOtroCoche.color,
-miOtroCoche.anio);
-miOtroCoche.modelo = "Ibiza";
-Console.WriteLine("Mi coche original es un {0} {1} de color {2} fabricado en {3}.",
-miCoche.marca,
-miCoche.modelo,
-miCoche.color,
-miCoche.anio);
-miOtroCoche = null;
-Console.WriteLine("Mi otro coche es un {0} {1} de color {2} fabricado en {3}.",
-miOtroCoche.marca,
-miOtroCoche.modelo,
-miOtroCoche.color,
-miOtroCoche.anio);
 
-class Coche
-{
-	public string? marca { get; set; }
-	public string? modelo { get; set; }
-	public int anio { get; set; }
-
-	public string? color { get; set; }
-	public decimal DeterminarValorDemercado()
-	{
-		decimal valor;
-		if (anio >= 1990)
-		{
-			valor = 10000;
-		}
-		else
-		{
-			valor = 2000;
-		}
-		return valor;
-	}
-}
+(Código: carpeta 12 archivo 4)
 
 Esto genera una excepción llamada "Unhandled Exception" cuando intenta imprimir miOtroCoche por segunda vez, ya que al haber cambiado de valor a null ya no está apuntando a ninguna referencia.
 
-onstructores
+Constructores
 
-el constructor es un método que nos permite ejecutar ódigo en el mismo momento en el que se crea una instanica de la clase.
+El constructor es un método que nos permite ejecutar código en el mismo momento en el que se crea una instancia de la clase.
 
 Cuando creamos una instancia de una clase hay que poner los paréntesis porque, en realidad, estamos llamando a un método. Este método es el constructor. Escribir código que se ejecute en ese constructor es opcional.
 
@@ -177,161 +36,24 @@ El uso más típico de un constructor es poder inicializar las propiedades de un
 
 Por ejemplo, con este código conseguiremos que los nuevos coches sean de la marca Nissan.
 
-Coche? miCoche = new Coche();
-miCoche.marca = "Seat";
-miCoche.modelo = "Toledo";
-miCoche.anio = 2007;
-miCoche.color = "verde";
-Coche? miOtroCoche = new Coche();
-Console.WriteLine("Mi coche original es un {0} {1} de color {2} fabricado en {3}.",
-miCoche.marca,
-miCoche.modelo,
-miCoche.color,
-miCoche.anio);
-Console.WriteLine("Mi otro coche es de la marca {0}.",
-miOtroCoche.marca);
-class Coche
-{
-	public string? marca { get; set; }
-	public string? modelo { get; set; }
-	public int anio { get; set; }
-
-	public string? color { get; set; }
-	public Coche()
-	{
-		marca = "Nissan";
-	}
-	public decimal DeterminarValorDemercado()
-	{
-		decimal valor;
-		if (anio >= 1990)
-		{
-			valor = 10000;
-		}
-		else
-		{
-			valor = 2000;
-		}
-		return valor;
-	}
-}
+(Código: carpeta 12 archivo 5)
 
 Constructor sobrecargado
 
-Podemos definir el constructor de varias manera. Lo único que tenemos que hacer es que cambien los parámetros que acepte cada una de ellas. Vamos a hacer un constructor que admita todas las propiedades como parámetros.
+Podemos definir el constructor de varias maneras. Lo único que tenemos que hacer es que cambien los parámetros que acepte cada una de ellas. Vamos a hacer un constructor que admita todas las propiedades como parámetros.
 
-Coche? miCoche = new Coche();
-miCoche.Marca = "Seat";
-miCoche.Modelo = "Toledo";
-miCoche.Anio = 2007;
-miCoche.Color = "verde";
-Coche? miOtroCoche = new Coche();
-Coche tercerCoche = new Coche("Ford","fiesta",1985,"blanco");
-Console.WriteLine("Mi primer coche es un {0} {1} de color {2} fabricado en {3}.",
-miCoche.Marca,
-miCoche.Modelo,
-miCoche.Color,
-miCoche.Anio);
-Console.WriteLine("Mi otro coche es de la marca {0}.",
-miOtroCoche.Marca);
-Console.WriteLine("Mi tercer coche es un {0} {1} {2} del año {3}.",
-tercerCoche.Marca,
-tercerCoche.Modelo,
-tercerCoche.Color,
-tercerCoche.Anio);
-class Coche
-{
-	public string? Marca { get; set; }
-	public string? Modelo { get; set; }
-	public int Anio { get; set; }
-	public string? Color { get; set; }
-	public Coche()
-	{
-		Marca = "Nissan";
-	}
-	public Coche(string marca, string modelo, int anio, string color){
-Marca = marca;
-Modelo = modelo;
-Anio = anio;
-Color = color;
-	}
-	public decimal DeterminarValorDemercado()
-	{
-		decimal valor;
-		if (Anio >= 1990)
-		{
-			valor = 10000;
-		}
-		else
-		{
-			valor = 2000;
-		}
-		return valor;
-	}
-}
+(Código: carpeta 12 archivo 6)
 
-Aquí se ve por qué era buena idea nombrar a las propiedades con mayúscula. La que empiza con mayúscula es la propiedad y l que tiene todas las letras minúsculas corresponde al parámetro que se le ha pasado al constructor.
+Aquí se ve por qué era buena idea nombrar a las propiedades con mayúscula. La que empieza con mayúscula es la propiedad y la que tiene todas las letras minúsculas corresponde al parámetro que se le ha pasado al constructor.
 
 Hemos dicho que el constructor es opcional, porque cuando no se crea C# provee uno por defecto que no tiene parámetros ni cuerpo.
 
 Sobre la palabra static
 
-Cuando hemos tenido que imprimir mensajes en la pantalla hemos podido hacerlo sin tener que crear ninguna instancia dela clase Console. Además, hemos usado la propiedad Now del objeto DateTime para guardar la fecha de hoy sin necesidad de crear una instancia del objeto DateTime. También pudimos invertir el orden de un array usando el método Reverse sin tener que crear un objeto de la clase Array. ¿Por qué?
+Cuando hemos tenido que imprimir mensajes en la pantalla hemos podido hacerlo sin tener que crear ninguna instancia de la clase Console. Además, hemos usado la propiedad Now del objeto DateTime para guardar la fecha de hoy sin necesidad de crear una instancia del objeto DateTime. También pudimos invertir el orden de un array usando el método Reverse sin tener que crear un objeto de la clase Array. ¿Por qué?
 
 Los creadores de esos métodos usaron la palabra static, que significa que no hay que crear ninguna instancia de la clase para usar el método. en algunos casos incluso le pusieron la palabra static a una clase entera. Como ejemplo crearemos un método con la palabra static en la clase Coche.
 
-Coche.MiMetodo();
-Coche? miCoche = new Coche();
-miCoche.Marca = "Seat";
-miCoche.Modelo = "Toledo";
-miCoche.Anio = 2007;
-miCoche.Color = "verde";
-Coche? miOtroCoche = new Coche();
-Coche tercerCoche = new Coche("Ford","fiesta",1985,"blanco");
-Console.WriteLine("Mi primer coche es un {0} {1} de color {2} fabricado en {3}.",
-miCoche.Marca,
-miCoche.Modelo,
-miCoche.Color,
-miCoche.Anio);
-Console.WriteLine("Mi otro coche es de la marca {0}.",
-miOtroCoche.Marca);
-Console.WriteLine("Mi tercer coche es un {0} {1} {2} del año {3}.",
-tercerCoche.Marca,
-tercerCoche.Modelo,
-tercerCoche.Color,
-tercerCoche.Anio);
-class Coche
-{
-	public string? Marca { get; set; }
-	public string? Modelo { get; set; }
-	public int Anio { get; set; }
-	public string? Color { get; set; }
-	public Coche()
-	{
-		Marca = "Nissan";
-	}
-	public Coche(string marca, string modelo, int anio, string color){
-Marca = marca;
-Modelo = modelo;
-Anio = anio;
-Color = color;
-	}
-	public decimal DeterminarValorDemercado()
-	{
-		decimal valor;
-		if (Anio >= 1990)
-		{
-			valor = 10000;
-		}
-		else
-		{
-			valor = 2000;
-		}
-		return valor;
-	}
-	public static void MiMetodo(){
-		Console.WriteLine("Aquí se fabrican los coches.");
-	}
-}
+(Código: carpeta 12 archivo 7)
 
 No hemos tenido que crear ningún coche para llamar al método.
