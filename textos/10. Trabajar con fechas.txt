@@ -1,77 +1,56 @@
 ﻿Fechas y horas
+
 Si en la lección anterior formateamos textos, en esta manipularemos fechas. Hablaremos del formateo de fechas y horas, como añadir o restar tiempo, cómo crear objetos para representar un momento del tiempo (del pasado, el momento actual o del futuro) y cómo determinar el tiempo que pasa entre dos momentos determinados.
 
 Para trabajar con fechas se usa el tipo "DateTime". El uso más fácil es crear un objeto que represente el momento actual, es decir, el momento en el que se ejecuta la aplicación:
 
-DateTime valor = DateTime.Now;
-Console.WriteLine(valor.ToString());
+(Código: carpeta 10 archivo 1)
 
 Esto mostrará en la pantalla la fecha y la hora de acuerdo con el idioma y la región que tengamos configurado en el ordenador.
 
-hay otros métodos para formatear la fecha. Por ejemplo, con ToShortDateString se muestra solo la fecha.
+Hay otros métodos para formatear la fecha. Por ejemplo, con ToShortDateString se muestra solo la fecha.
 
-DateTime valor = DateTime.Now;
-Console.WriteLine(valor.ToShortDateString());
+(Código: carpeta 10 archivo 2)
 
 Aquí tenemos un método que muestra únicamente la hora.
 
-DateTime valor = DateTime.Now;
-Console.WriteLine(valor.ToShortTimeString());
+(Código: carpeta 10 archivo 3)
 
 Ahora imprimiremos la fecha larga, incluyendo el día de la semana:
 
-DateTime valor = DateTime.Now;
-Console.WriteLine(valor.ToLongDateString());
+(Código: carpeta 10 archivo 4)
 
 También podemos mostrar la hora en formato largo (incluyendo los segundos):
 
-DateTime valor = DateTime.Now;
-Console.WriteLine(valor.ToLongTimeString());
+(Código: capreta 10 archivo 5)
 
 Con este código sabremos qué fecha será dentro de 3 días:
 
-DateTime valor = DateTime.Now;
-Console.WriteLine(valor.AddDays(3).ToLongDateString());
+(Código: carpeta 10 archivo 6)
 
-aquí hemos concatenado dos métodos seguidos con el punto. A nuestro valor le hemos pasado el método AddDays para sumarle 3 días a la fecha. Eso ha generado otro objeto de tipo DateTime, así que podemos usar cualquiera de los métodos vistos anteriormente para formatear esta nueva fecha. en este caso, la estamos mostrando como fecha larga.
+Aquí hemos concatenado dos métodos seguidos con el punto. A nuestro valor le hemos pasado el método AddDays para sumarle 3 días a la fecha. Eso ha generado otro objeto de tipo DateTime, así que podemos usar cualquiera de los métodos vistos anteriormente para formatear esta nueva fecha. en este caso, la estamos mostrando como fecha larga.
 
 Ahora añadiremos 3 horas:
 
-DateTime valor = DateTime.Now;
-Console.WriteLine(valor.AddHours(3).ToLongTimeString());
+(Código: carpeta 10 archivo 7)
 
 No hay métodos para restar tiempo, pero se pueden usar los que estamos viendo con valores negativos. Veremos qué día fue hace 3 días:
+(Código: carpeta 10 archivo 8)
 
 También se puede extraer cualquier parte de una fecha. Por ejemplo, así se extrae un número que representa el mes.
 
-DateTime valor = DateTime.Now;
-Console.WriteLine(valor.Month);
+(Código: carpeta 10 archivo 9)
 
-Conservaremos la fecha valor, pero ahora crearemos una con un día concreto. el procedimiento es similar a la construcción de otras clases (como el número aleatorio o el StringBuilder). Hay que pasarle el año, el mes y el día. luego la imprimimos para comprobar que es la fecha correcta.
+Conservaremos la fecha valor, pero ahora crearemos una con un día concreto. el procedimiento es similar a la construcción de otras clases (como el número aleatorio o el StringBuilder). Hay que pasarle el año, el mes y el día. Luego la imprimimos para comprobar que es la fecha correcta.
 
-DateTime valor = DateTime.Now;
-Console.WriteLine(valor.Month);
-DateTime aniversario = new DateTime(1986,12,29);
-Console.WriteLine(aniversario.ToShortDateString());
+(Código: carpeta 10 archivo 10)
 
 También se podría crear un objeto DateTime si convertimos una cadena que tenga un formato de fecha válido. Aprovechemos para poner unos mensajes que aclaren qué es cada cosa cuando se ejecute la aplicación.
 
-DateTime valor = DateTime.Now;
-Console.WriteLine("Mes de la fecha de hoy: {0}.", valor.Month);
-DateTime aniversario = new DateTime(1986,12,29);
-Console.WriteLine("Aniversario: {0}.", aniversario.ToShortDateString());
-DateTime hispanidad = DateTime.Parse("12/10/2024");
-Console.WriteLine("Hispanidad: {0}.", hispanidad.ToShortDateString());
+(Código: carpeta 10 archivo 11)
 
 Podemos saber la cantidad de tiempo que ha pasado entre dos fechas. Para ello hay que usar una variable de tipo TimeSpan. Para hacer la resta se llama al método Subtract de la fecha más moderna y se le pasa como parámetro la fecha más antigua.
 
 Para mostrar el valor obtenido se puede usar la propiedad TotalDays (e lo obtiene en días). Por lo tanto, así calcularíamos la edad de una persona.
 
-DateTime valor = DateTime.Now;
-Console.WriteLine("Mes de la fecha de hoy: {0}.", valor.Month);
-DateTime aniversario = new DateTime(1986,12,29);
-Console.WriteLine("Aniversario: {0}.", aniversario.ToShortDateString());
-DateTime hispanidad = DateTime.Parse("12/10/2024");
-Console.WriteLine("Hispanidad: {0}.", hispanidad.ToShortDateString());
-TimeSpan edad = valor.Subtract(aniversario);
-Console.WriteLine("Esta persona ha vivido {0} días y, por lo tanto, tiene aproximadamente {1} años.", edad.TotalDays, edad.TotalDays/365);
+(Código: carpeta 10 archivo 12)
