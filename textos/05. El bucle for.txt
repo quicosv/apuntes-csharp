@@ -2,10 +2,7 @@
 
 En ocasiones necesitamos recorrer una secuencia de elementos para encontrar lo que buscamos.
 
-for (int i = 0; i < 10; i++)
-{
-	Console.WriteLine(i);
-}
+(Código: carpeta 5 archivo 1)
 
 Al ejecutar este programa tenemos una lista de números que va del 0 al 9. Esto significa que C# ha ejecutado el código varias veces hasta que se cumpla una determinada condición. En ese momento deja de ejecutarse el bloque de código y el programa sigue.
 
@@ -19,14 +16,7 @@ i++ significa incrementar el valor de i en 1.
 
 A la hora de recordar cómo se define el bucle for, quizá ayude separar las tres partes por el punto y coma: inicialización del contador, condición a cumplir, incremento del contador.
 
-for (int i = 0; i < 10; i++)
-{
-	if (i == 7)
-	{
-		Console.WriteLine("¡He encontrado el 7!");
-		break;
-	}
-}
+(Código: carpeta 5 archivo 2)
 
 En este caso en el bloque tenemos una instrucción if que se ejecutará cuando i valga 7. Entonces se imprimirá que hemos encontrado el 7, ¿pero qué hace break? simplemente salir del bucle for y continuar con el resto del programa.
 
