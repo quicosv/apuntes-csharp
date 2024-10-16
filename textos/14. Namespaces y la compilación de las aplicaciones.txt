@@ -1,0 +1,31 @@
+﻿Namespaces y la compilación de las aplicaciones
+
+La librería de .NET contiene un montón de clases que dan funcionalidad a nestras aplicaciones. En Microsoft se han pasado muchas horas haciendo y manteniendo este código para que podamos usar estas clases y sus métodos en nuestras aplicaciones.
+
+La biblioteca es enorme. Son miles de clases, cada una de ellas con sus propios métodos. Los desarrolladores decidieron sabiamente separar esta librería en múltiples archivos. A estos archivos se les conoce como assemblies en inglés. De hecho, nuestras aplicaciones también se compilan en assemblies. Volvamos al Hola Mundo.
+
+(Código: carpeta 14 archivo 1)
+
+Para entender lo que está pasando abramos la carpeta del proyecto en el explorador de Windows. Allí nos encontraremos con la carpeta bin, que hemos ignorado hasta ahora. Aquí encontraremos una carpeta debug con ficheros que necesita .NET para que podamos parar la ejecución en el punto que queramos del código con idea de encontrar errores. Entre estos ficheros encontraremos un ejecutable (.exe) de la aplicación. Eso significa que podríamos ejecutarlo desde la terminal sin depender de Visual Studio code para ello.
+
+Si en lugar de esta aplicación hubiéramos hecho ciertas clases con sus correspondientes métodos también podríamos hacer que .NET lo compilara en un archivo dll. Explicaremos esto más adelante.
+
+La librería de .NET tiene tantas clases que existía el riesgo de que algunas de ellas se llamaran igual, así que se necesitaba una manera de diferenciarlas. De ahí surgieron los namespaces.
+
+Podríamos haber usado System.Console.WriteLine para haber imprimido el Hola Mudno, pero no hemos tenido que usar System. ¿Por qué? porque en la configuración del proyecto se le dice que tiene que buscar la clase Console en el namespace System.
+
+Supongamos que buscamos en el sitio de Microsoft la forma de escribir texto en un archivo y nos encontramos con un código como éste:
+
+(Código: carpeta 14 archivo 2)
+
+Si miramos los errores nos encontramos con lo siguiente:
+
+Argumento 1: no se puede convertir de 'string' a 'System.IO.Stream'
+Argumento 2: no se puede convertir de 'bool' a 'System.Text.Encoding'
+El nombre 'Encoding' no existe en el contexto actual
+
+Si vamos a la línea que genera los errores (pulsando enter sobre un error de la lista) y miramos las acciones de código que se nos proponen al pulsar control punto veremos que hay una que dice "using System.Text;". Si pulsamos enter sobre ella nos genera el siguiente código:
+
+(Código: carpeta 14 archivo 3)
+
+Lo que ha sucedido es que estábamos intentando usar una clase que el compilador no encontraba. La línea "using System.Text;" le dice que busque las clases que no encuentra en el namespace que se llama "System.Text". Eso permite que la aplicación funcione y que podamos escribir en un archivo.
