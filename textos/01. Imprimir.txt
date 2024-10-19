@@ -1,10 +1,20 @@
-﻿Crea una carpeta vacía en la que almacenar proyectos y ábrela con Visual Stuido Code.
+﻿Crea una carpeta vacía en la que almacenar los proyectos que vayamos haciendo. Te recomiendo que lo que expliquemos en cada capítulo lo almacenes en su propio proyecto.
 
-Se crea el proyecto con .NET: Nuevo Proyecto en la paleta.
+Lo más fácil es crear el proyecto desde la terminal. Para ello la terminal deberá estar apuntando a la carpeta en la que se guardarán los proyectos. A partir de aquí tenemos dos posibilidades: una es crear una carpeta vacía que se llamará como el proyecto y crear el proyecto dentro. La otra es decirle que cree la carpeta y el proyecto al mismo tiempo.
 
-Le llamaremos PrimeraAplicacion con la P de Primera y la A inicial de Aplicacion en mayúscula. Además, no tiene que haber ni acentos ni espacios. Debe ser una aplicación de consola.
+Nuestras primeras aplicaciones serán de consola, es decir, que se ejecutarán en la terminal. Esto es así porque es el entorno más sencillo con el que aprender a programar.
+nuestro primer proyecto se llamará "HolaMundo". Fíjate que no hay ningún espacio en el nombre. A continuación te muestro las dos formas de crear la aplicación.
 
-Una vez creado el proyecto editaremos el código en Program.cs.
+Si optamos por crear la carpeta nosotros entonces crearemos una carpeta vacía que se llame HolaMundo. Nos meteremos a ella con la terminal y ejecutaremos este comando:
+dotnet new console
+La palabra dotnet hace referencia a la utilidad que nos permitirá crear proyectos y ejecutarlos; new significa nuevo en inglés y sirve para crear algo nuevo; console es consola en inglés y corresponde al tipo de proyecto que queremos crear.
+
+Si optamos por dejar que sea él quien cree la carpeta y el proyecto posicionaremos la terminal en el lugar donde queremos que cree la carpeta y ejecutamos este comando:
+
+dotnet new console -o HolaMundo
+La única diferencia con el anterior es que hemos añadido -o (de output, que se traduciría como resultado o salida) y le hemos puesto el nombre de la carpeta que tiene que crear.
+
+Una vez creado el proyecto lo abriremos con Visual Studio Code y editaremos el código en Program.cs.
 
 Hola mundo
 
@@ -21,7 +31,7 @@ Hola mundo está entre comillas dobles.
 Ese texto entre comillas dobles está entre paréntesis.
 La línea termina con un punto y coma.
 
-se guarda con contrl s. Se puede ejecutar desde dentro o desde fuera de Visual Studio Code.
+se guarda con control s. Se puede ejecutar desde dentro o desde fuera de Visual Studio Code.
 
 Ejecución desde dentro
 
@@ -34,7 +44,7 @@ Pulsar control ñ para salir de la terminal y volver al editor.
 Ejecución desde fuera
 
 Pulsar control shift c para abrir una terminal externa o abrir la terminal de nuestra peferencia.
-Navegar con la terminal a la carpeta que contenga Program.cs, teniendo en cuenta que se crea una carpeta por cada proyecto.
+Navegar con la terminal a la carpeta que contenga Program.cs, teniendo en cuenta que se crea una carpeta por cada del proyecto.
 Ejecutar la aplicación con el siguiente comando:
 
 dotnet run
@@ -99,10 +109,8 @@ Pulsando sift tab varias veces desde el editor llegaremos a una presentación en
 
 El explorador de soluciones es la manera de navegar entre los archivos y las configuraciones que componen el proyecto. Los proyectos se ordenan en soluciones. Las soluciones pueden contener uno o más proyectos.
 
-Es momento de navegar con el explorador de Windows a la carpeta que tenemos abierta en Visual Studio Code.
+Es momento de navegar con el explorador de Windows a la carpeta que tenemos abierta en Visual Studio Code. Dentro de la carpeta tenemos:
 
-Se crea una carpeta llamada PrimeraAplicacion y un archivo PrimeraAplicacion.sln, que es la solución. se podría abrir el proyecto abriendo la solución.
-
-Dentro de la carpeta tenemos PrimeraAplicacion.csproj. Contiene referencias a todo lo que está asociado con el proyecto y configuraciones. Por jemplo, aquí es donde se especifica que cree el namespace global, la clase y el punto de entrada del que hemos hablado antes. Cualquier configuración que hagamos en el proyecto se guardará en este archivo.
-
-En la carpeta bin se guardará el ejecutable de la plicación, es decir, la versión que entiende el ordenador.
+HolaMundo.sln: Es la solución.
+HolaMundo.csproj: Contiene referencias a todo lo que está asociado con el proyecto y configuraciones. Por jemplo, aquí es donde se especifica que cree el namespace global, la clase y el punto de entrada del que hemos hablado antes. Cualquier configuración que hagamos en el proyecto se guardará en este archivo.
+La carpeta bin: Aquí se guardará el ejecutable de la plicación, es decir, la versión que entiende el ordenador.
