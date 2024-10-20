@@ -1,6 +1,5 @@
 ﻿Ensamblados propios
 
-
 Cuando creamos un proyecto ya tenemos unos cuantos ensamblados agregados automáticamente porque Microsoft ha pensado que son los más comunes para las tareas que se seuelen llevar a cabo en ese tipo de proyecto. Se pueden añadir otros ensamblados, por ejemplo a través del gestor de paquetes nuget, pero en este caso vamos a construir nuestro propio ensamblado para luego referenciarlo en un proyecto.
 
 En el explorador de soluciones ubicaremos nuestro proyecto, desplegaremos el menú de contexto y usaremos la opción de cerrar solución. A continuación crearemos un nuevo proyecto de tipo "Biblioteca de clases, Library" que se llamará "MiBiblioteca". observaremos que tenemos un archivo llamado "Class1.cs". Renombraremos la clase y crearemos un par de métodos. Uno extraerá el código de una página web y lo devolverá a quien lo llamó. el otro escribirá el código de la web en un fichero. Nuestra primera versión quedaría así:
@@ -17,38 +16,52 @@ Una vez terminado el trabajo es momento de compilar la solución. Para eso podem
 
 Para poder usar convenientemente la biblioteca en una aplicación crearemos una solución que va a contener a los dos proyectos.
 
-Abrmos la terminal en la carpeta en la que tengamos todos los proyectos y ejecutamos este comando para crear la solución.
+Abrimos la terminal en la carpeta en la que tengamos todos los proyectos y crearemos una carpeta que dará nombre al proyecto. Por ejemplo, "FuentesWeb". Entraremos en esta carpeta y ejecutamos este comando para crear la solución.
 
 dotnet new sln
 
-La solución se llamará como la carpeta en la que estemos.
+Ahora crearemos el proyecto de la biblioteca de clases. Le llamaremos "Biblioteca". Lo crearemos desde la terminal con este comando:
 
-Ahora crearemos el proyecto de la biblioteca de clases. Para no confundirlo con el anterior le llamaremos "FuentesWeb". En vez de crearlo desde Visual Studio Code lo crearemos desde la terminal con este comando:
-
-dotnet new classlib -o FuentesWeb
+dotnet new classlib -o Biblioteca
 
 Una vez que tenemos el proyecto creado hay que decirle que lo añada a la solución. Eso se hace con este comando:
 
-dotnet sln solucion.sln add FuentesWeb/FuentesWeb.csproj
+dotnet sln add Biblioteca/Biblioteca.csproj
 
-Aquí "solcuion.sln" representa el nombre del archivo de la solución. Si hubiera una única solución en esa carpeta no haría falta ponerlo.
+Ahora ya se puede abrir Class1.cs de FuentesWeb y hacer el código. Por simplicidad, vamos a copiar y pegar la última versión que teníamos de nuestra clase.
 
-Ahora ya se puede abrir Class1.cs de FuentesWeb y hacer el código. Por simplicidad, vamos a copiar y pegar la última versión que teníamos e nuestra clase.
-
-Compilaremos el proyecto para awegurarnos de que no hay errores con este comando.
+Compilaremos el proyecto para asegurarnos de que no hay errores con este comando.
 
 dotent build
 
 Luego creamos el proyecto de consola:
 
-dotnet new console -o ClienteFuentesWeb
+dotnet new console -o Cliente
 
 Añadimos el proyecto a la solución:
 
-dotnet sln solucion.sln add ClienteFuentesWeb/ClienteFuentesWb.csproj
+dotnet sln add Cliente/Cliente.csproj
 
 Añadimos la referencia a la biblioteca.
 
-dotnet add ClienteFuentesWeb/ClienteFuentesWeb.csproj FuentesWeb\FuentesWeb.csproj
+dotnet add Cliente/Cliente.csproj reference Biblioteca\.csproj
 
 Ahora ya se puede editar el archivo Program.cs en el proyecte ClienteFuentesWeb y comprobar que cuando usamos la clase Visual Studio Code añade el using que corresponde.
+(Código: carpeta 15 archivo 3)
+
+Probemos a ejecutar el proyecto como siempre:
+
+dotnet run
+
+El sistema nos lanzará un error diciendo que no hay ningún proyecto.
+
+Tenemos que usar la opción project y pasarle el proyecto a ejecutar. El comando quedaría así:
+
+dotnet run --project Cliente
+
+Podemos compilar la solución en el carpeta de nuestra preferencia y luego llamar al ejecutable que ha generado la proyecto Cliente. Vamos a suponer que lo queremos en una carpeta al nivel de la solución para que sea más fáicl ejecutarlo. Los comandos serían:
+
+dotnet build --output salida
+salida\Cliente.exe
+
+Lo interesante de tener los dos proyectos relacionados en la solución es que si hacemos algún cambio en la biblioteca podemos aprovecharlo automáticamente en el cliente.
