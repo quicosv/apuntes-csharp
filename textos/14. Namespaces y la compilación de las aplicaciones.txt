@@ -2,7 +2,7 @@
 
 La librería de .NET contiene un montón de clases que dan funcionalidad a nestras aplicaciones. En Microsoft se han pasado muchas horas haciendo y manteniendo este código para que podamos usar estas clases y sus métodos en nuestras aplicaciones.
 
-La biblioteca es enorme. Son miles de clases, cada una de ellas con sus propios métodos. Los desarrolladores decidieron sabiamente separar esta librería en múltiples archivos. A estos archivos se les conoce como assemblies en inglés. De hecho, nuestras aplicaciones también se compilan en assemblies. Volvamos al Hola Mundo.
+La biblioteca es enorme. Son miles de clases, cada una de ellas con sus propios métodos. Los desarrolladores decidieron sabiamente separar esta librería en múltiples archivos. A estos archivos se les conoce como ensamblados (assemblies en inglés). De hecho, nuestras aplicaciones también se compilan en ensamblados. Volvamos al Hola Mundo.
 
 (Código: carpeta 14 archivo 1)
 
