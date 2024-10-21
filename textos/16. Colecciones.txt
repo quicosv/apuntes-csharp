@@ -1,0 +1,59 @@
+﻿Colecciones
+
+Hemos visto que los arrays nos permiten guardar un grupo o secuencia de datos relacionados en una misma variable. Creábamos un array dándole un tipo de dato y cada elemento del array tenía que ser de ese tipo de dato. También le pasábamos entre corchetes la cantidad de elementos que iba a tener ese array. También podíamos referirnos a cualquier elemento del array para cambiar o consultar su valor mediante el índice, sabiendo que el primer elemento tiene como índice 0. También se podía iterar el array o pasarlo como parámetor a un método.
+
+En general, además de lo que ya nos permiten hacer los arrays, en las colecciones podremos trabajar con tipos de datos más complejos (como los cohces que creábamos) y podremos hacer cosas como añadir, ordenar o filtrar los elementos.
+
+De todas las colecciones que hay, en este capítulo nos centraremos en dos: las listas y los diccionarios.
+
+Supongamos que queremos manejar cierto número de coches que tengamos en el concesionario. Necesitamos agruparlos en una colección.
+
+Partimos de un código simple en el que tenemos dos clases muy simples: Coche y Libro. También declaramos un par de cohces y un libro y les damos valores:
+
+(Código: carpeta 16 archivo 1)
+
+Primero vamos a hablar de una colección que no hay que usar. Se llama ArrayList. Mira este código:
+
+(Código: carpeta 16 archivo 2)
+
+Los ArrayList están muy bien porque su tamaño se averigua de forma dinámica y porque se pueden ordenar y filtrar los elementos. Sin embargo, no tenemos control sobre el tipo de datos de los elementos. Hemos dicho que queríamos gestionar los coches del concesionario, pero también nos ha dejado añadir el libro.
+
+Por lo tanto, ¿qué pasaría si intentáramos imprimir la lista de marcas de nuestros coches?
+
+(Código: carpeta 16 archivo 3)
+
+Lo que ocurre es que se imprimen Seat y Fiat (las marcas de los coches) pero luego se lanza una excepción porque habíamos añadido el libro. Lo que dice la excepción es que el tipo Libro no se puede convertir a tipo Coche.
+
+Listas
+
+(Código: carpeta 16 archivo 4)
+
+En la definición de la lista se incluye entre menor que y mayor que el tipo de dato que tendrá cada elemento de la lista. Esto hace que si intentamos añadir el libro Visual Stuido Code dará un error diciendo que no se puede convertir de Libro a Coche.
+
+Esto nos permite trabajar con total confianza. Ahora sí que se imprimen bien las marcas de los coches.
+
+(Código: carpeta 16 archivo 5)
+
+Diccionarios
+
+Pensemos en un diccionario tradicional. Cuando encontramos una palabra podemos leer su definición. Por lo tanto, cada entrada del diccionario tiene dos componentes: la clave (la palabra que hemos buscado) y el valor (la definición que le corresponde).
+
+A la hora de crear el diccionario definiremos el tipo de dato de la clave y del valor. Esta clave debe ser algo único. Por ejemplo, para una persona podría ser su documento de identidad. El valor podría ser el propio objeto de la persona.
+
+Para poder ilustrar esto vamos a hacer que nuestros coches tengan una matrícula y luego crearemos un diccionario que tenga como clave una cadena (la matrícula) y como valor un objeto del tipo Coche.
+
+(Código: carpeta 16 archivo 6)
+
+En la definición, justo entre los signos de menor que y mayor que, se le pasa el tipo de la clave y del valor separados por comas. Luego, al método add se le pasa como primer parámetro la clave y como segundo parámetro el valor.
+
+Ahora completaremos el programa para ver cómo se encuentra un elemento específico del diccionario.
+
+(Código: carpeta 16 archivo 7)
+
+La notación es igual que en los arrays. en vez de poner entre corchetes el índice estamos poniendo la clave.
+
+Inicialización
+
+Podemos crear los objetos y las listas dándoles valores en la imsma línea. Los valores se pasan entre llaves.
+
+(Código: carpeta 16 archivo 8)
