@@ -1,0 +1,57 @@
+﻿Linq
+Linq es el lenguaje que nos permite hacer diferentes operaciones en las colecciones como ordenar o filtrar.
+
+Linq tiene dos sintaxis: una parecida a las consultas de las bases de datos sql y otra parecida a los métodos.
+
+(Código: carpeta 17 archivo 1)
+
+Aquí hemos llevado la inicialización un paso más allá y hemos inicializado cada uno de los coches en el mismo momento de la creación de la lista.
+
+Haremos una comparativa entre las dos formas de usar Linq para hacer la misma operación. en primer lugar, buscaremos todos los coches que sean de la marca Seat y que hayan sido fabricados en 2010.
+
+
+Primero lo haremos a la manera de las consultas.
+
+(Código: carpeta 17 archivo 2)
+
+La palabra "var" significa que dejamos que sea el compilador quien decida el tipo de dato que debe tener la variable que estamos creando. Esto es necesario porque los tipos de lo que estamos creando con Linq son demasiado complejos. Como curiosidad, diremos que 
+podemos llamar al método GetType de cualquier variable para saber su tipo.
+Y ahora veamos lo mismo con los métodos.
+
+(Código: carpeta 17 archivo 3)
+
+Lo que tenemos entre paréntesis se denomina "expresión lambda" y podemos pensar en ella como en un minimétodo. En este caso p es una instancia de la colección. Así que, dada esta colección, le pedimos que nos devuelva solo los que cumplan las condiciones que hemos especificado.
+
+Ahora ordenaremos los coches según el año de fabricación de forma que primero aparezcan los nuevos.
+
+Con el lenguaje de consultas quedaría así:
+
+(Código: carpeta 17 archivo 4)
+
+Con la sintaxis del método sería de esta manera.
+
+(Código: carpeta 17 archivo 5)
+
+Nuevamente, la sintaxis del método es más concisa, así que a partir de ahora trabajaremos con la sintaxis del método.
+
+Busquemos el primer coche de una marca que aparezca en la lista.
+
+(Código: carpeta 17 archivo 6)
+
+Podemos concatenar métodos con la sintaxis del punto. Por ejemplo, vamos a mostrar el coche más nuevo.
+
+(Código: carpeta 17 archivo 7)
+
+Linq también nos proporcion un foreach mucho más compacto.
+
+(Código: carpeta 17 archivo 8)
+
+De hecho, podemos utilizar este método para hacer operaciones con todos los coches. Por ejemplo, vamos a reducir su precio en 3000 euros.
+
+(Código: carpeta 17 archivo 9)
+
+Otros métodos interesantes
+
+- Exists comprueba si algún coche cumple ciertas condiciones.
+- TureForAll comprueba si una condición es cierta para todos los coches.
+- Sum suma todos los valores numéricos. Por ejemplo, podríamos sumar todos los precios.
