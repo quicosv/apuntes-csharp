@@ -1,0 +1,39 @@
+﻿Switch y las enumeraciones
+
+Cuando queremos tomar decisiones tanto los bloques if, else if, else como el operador condicional (cerrar interrogación) son muy buenos cuando solo hay unas pocas condiciones a evaluar. Pero cuando hay que contemplar muchos casos potenciales veremos que switch es más conciso y nos deja un código más ordenado, aunque no será la única razón por la que usar switch.
+
+El tipo enum
+
+Cuando damos un tipo de dato específico a una variable estamos limitando los valores que puede almacenar. Sin embargo, a veces se necesita que una variable pueda tomar unos pocos valores para que tenga sentido en el sistema. Con el tipo de datos enum podremos limitar el valor de una variable solo a aquello que tenga significado para lo que estamos haciendo.
+
+Imaginemos que estamos haciendo una aplicación de gestión de tareas. Tenemos una clase para representar las tareas y queremos controlar el estado de cada tarea de la lista. supongamos que tenemos cinco estados posibles:
+
+- Que la tarea no se haya iniciado.
+- que esté en progreso.
+- Que esté en espera.
+- Que esté completada.
+- Que esté eliminada.
+
+Podríamos convenir que el número 1 represente que la tarea no esté iniciada o que el 2 signifique que está en progreso. Pero cuando estamos leyendo el código esos números no tienen un significado obvio. Necesitaríamos acudir a algún contexto (como comentarios en el código) que nos recordaran el significado. Además, puede que ya haya pasado tiempo, que la forma de gestionar las tareas haya cambiado y que esos números no tengan sentido. También podríamos usar cadenas de texto. el probelma es que alguien podría escribirlas mal en algún punto y, por ejemplo, no podríamos encontrar todas las tareas sin empezar.
+
+Lo bueno del tipo enum es que nos da un texto equivalente para un número, de forma que el sistema deja de se ambiguo y sabemos exactamente con qué estamos trabajando.
+
+Partimos de un código en el que hemos creado la clase Tarea y una lista de tareas.
+
+(Código: carpeta 18 archivo 1)
+
+Observa que el estado de la tarea es de tipo Estado y que lo hemos creado con enum. Internamente, el compilador le está asignando un número a cada valor. Así, SinEmpezar sería el 0, EnProgreso sería el 1 y así sucesivamente. Para cualquier desarrollador es mucho más fácil trabajar con este tipo de textos que con los números.
+
+Switch
+
+Podemos construir la sentencia switch con el autocompletado gracias a la opción "switch, switch statement". Dentro de los paréntesis pondremos la variable que interviene en la condición. lo quese pone entre las llaves es:
+
+- La palabra case seguida de un valor y el signo de dos puntos.
+- el código que se ejecutará si la variable vale ese valor.
+- Una sentencia break.
+
+Esto se repite para cada valor que nos interese evaluar. Visual Studio Code nos ha preparado una sentencia Default. El código que pongamos después (siempre junto con la instrucción break) se ejecutará si la variable no vale ninguno de los valores que hemos puesto en los case.
+
+Vamos a repasar la lista de tareas para imprimir un mensaje apropiado según el estado de cada una de ellas.
+
+(Código: carpeta 18 archivo 2)
