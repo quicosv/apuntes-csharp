@@ -1,0 +1,43 @@
+﻿Excepciones
+
+Cuando el compilador encuentra algún tipo de dato incorrecto, alguna referencia que falte a un objeto o alguna instrucción mal hecha decide no compilar el código en un ensamblada hsta que solucionemos el problema. A esto se le llama errores de compilación.
+
+Sin embargo, hay otros errores que ocurren durante la ejecución del programa y hay muchas razones por las que pueden aparecer dependiendo de lo que intentemos hacer con la aplicación. Muchas de estas razones escapan al control del desarrollador. Por ejemplo, intentar escribir un fichero cuando no está en el lugar que esperábamos del disco, escribir en un fichero que esté corrupto, fallos a la hora de acceder a un recurso de internet o no encontrar algo que se buscaba en una base de datos debido a cambios en su estructura. Todas estas razones y muchas más pueden provocar que la aplicación falle y que el usuario vea un error muy feo durante la ejecución. La tarea del desarrollador es pensar que cualquier cosa que no puede controlar puede fallar y hacer código que prevenga eso.
+
+Vamos a crear un programa que muestre en la pantalla el contenido de un fichero.
+
+(Código: carpeta 19 archivo 1)
+
+Si en la carpeta del proyecto creamos un directorio llamado "ficheros" y dentro ponemos "fichero.txt" con algún contenido podremos ver que la aplicación funciona bien y que el texto se ve en la pantalla.
+
+Ahora vamos a cambiar intencionadamente el nombre del archivo por uno que no exista:
+
+(Código: carpeta 19 archivo 2)
+
+Si ejecutamos la aplicación veremos una excepción que dice que no encuentra "archivo.txt". El problema es que el suario final también lo vería y no comprendría lo que está pasanado. Por lo tanto, debemos intentar que el usario nunca vea este tipo de mensajes.
+
+Aquí tenemos la ofrma más fácil de solucionarlo.
+
+(Código: carpeta 19 archivo 3)
+
+Al ejecutarlo comprobaremos que en la terminal no se muestra nada. Esto es porque ha intentado ejecutar lo que había en el bloque try y, como no ha podido, ha ejecutado el bloque catch (donde no tenemos nada).
+
+Vamos a ir un paso más allá. Vamos a capturar la excepción y vamos a darle al usuario el mensaje de error que da.
+
+(Código: carpeta 19 archivo 4)
+
+Esto le da alguna pista más al usuario sobre lo que está pasando.
+
+Podemos ser aún más específicos. La documentaación sobre File.ReadAllText está en los comentarios de la propia función (accedemos poniendo el cursor en la función y pulsando F12) o en internet. Vamos a reescribir el ejemplo capturando las excepciones que nos parezca que tengan sentido. Por ejemplo, daremos un mensaje de error si no encuentra el archivo y otro diferente si no encuentra el directorio.
+
+(Código: carpeta 19 archivo 5)
+
+Ahora podemos probar la aplicación. Como el nombre del archivo está mal nos dirá que no encuentra el archivo. Si además cambiamos el nombre de la carpeta nos lanzará el error diciendo que no encuentra el directorio.
+
+Lo importante aquí es que primero hemos hecho el código para las excepciones más específicas y por último el código para las más genéricas.
+
+También es importante conocer el bloque finally. Este bloque se ejecutará siempre, sin importar si se ha ejecutado lo que teníamos en el try o si se ha producido alguna excepción. Por lo tanto, podemos aprovechar este bloque para hacer que nuestros objetos valgan null o para cerrar conexiones con recursos como bases de datos. en nuestro ejemplo imprimiremos un mensaje para que, al ejecutar la aplicación, se pueda comprobar cómo funciona.
+
+(Código: carpeta 19 archivo 6)
+
+Por último, hay que recalcar que estos mensajes de error deben servir para que el usario sepa lo que debe hacer cuando aparecen estos problemas. Por ejemplo, dale los pasos a seguir o proporciónale un ejemplo del tipo de dato que espera la aplicación en ese momento. Así notarán que se les ha tenido en cuenta en el diseño, que pueden usar la aplicación y que tienen una buena experiencia.
