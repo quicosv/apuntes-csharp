@@ -1,0 +1,25 @@
+﻿Eventos
+
+Los eventos nos permiten crear código que responda a todo lo que aocurre durante el ciclo de  vida de una aplicación. Hasta ahora hemos hecho aplicaciones de consola, cuyo único evento era el inicio de la propia aplicación. ahí simplemente había que ejecutar lo que hubiera en el punto de entrada (el archivo Program.cs).
+
+en las interfaces modernas, el usuario tiene que poder interactuar con todo aquello que ss muestra en la pantalla. Por ejemplo, se puede escribir en un campo de texto, se puede hacer click en un botón o se pueden arrastrar elementos. Cada una de estas acciones genera eventos y podemos decidir escribir código que responda a esas interacciones del usuario con los elementos de la pantalla. Por ejemplo, un botón funciona porque exite un evento click para cuando el usuario lo pulsa y el desarrollador le ha dicho a la aplicación cuál es el método que tiene que ejecutarse cuando se produzca el evento click de ese botón.
+
+Primero veremos un evento en una aplicación de consola y luego trabajaremos con eventos en una aplicación de Windows.
+
+Vamos a crear un programa que trabaje con un objeto del tipo Timer. Para generar el código haremos lo siguiente:
+
+- Nos aseguraremos de que el objeto es del tipo System.Timers.Timer.
+- Lo que nos interesa del objeto es Elapsed y lo igualaremos al nombre dle método.
+- Como dará un error, le pediremos que cree automáticamente el método.
+
+El código quedará así:
+
+(Código: carptea 20 archivo 1)
+
+Ahora, en el cuerpo del método, imprimiremos el tiempo que ha pasado con la hora actual cada dos segundos. Para eso, en la parte principal del programa, haremos que el cronómetro empiece y que se espere a finalizar el programa cuando el usuario pulse intro. el código queda así:
+
+(Código: carpeta 20 archivo 2)
+
+Con el operador += añadimos eventos y con el operador -= quitamos eventos.
+
+El vídeo luego explica cómo se crean los eventos en una aplicación WPF.
