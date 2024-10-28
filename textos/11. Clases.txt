@@ -2,7 +2,7 @@
 
 Habíamos dicho al principio que una clase es un contenedor para métodos que están relacionados. Tenemos como ejemplo la clase Console que tiene métodos como Clear, Write, WriteLine o ReadLine. Todos estos métodos tienen que ver con la manipulación de la ventana de la consola, así que tiene sentido ponerlos en la misma clase.
 
-Esto fue una simplificación intencionada de la explicación de una clase. En primer lugar, porque quien nunca haya programado necesita sentir cierta confianza en que pued hacerlo y, en segundo lugar, porque la explicación de qué es una clase pertenece al estilo de la programación orientada a objetos, cosa que no mucha gente es capaz de entender a la primera.
+Esto fue una simplificación intencionada de la explicación de una clase. En primer lugar, porque quien nunca haya programado necesita sentir cierta confianza en que puede hacerlo y, en segundo lugar, porque la explicación de qué es una clase pertenece al estilo de la programación orientada a objetos, cosa que no mucha gente es capaz de entender a la primera.
 
 aunque no lo sepamos, todo el código que hemos escrito hasta ahora estaba dentro de una clase. Ahora solo daremos algunos detalles que hasta ahora no sabías sobre las clases para que te marques el objetivo de encontrar lo que necesites usar entre las propiedades y los métodos de las clases que .NET ya tiene definidas. Hablaremos de los conceptos relacionados con las clases creando las nuestras propias.
 
@@ -42,6 +42,6 @@ A la hora de definir el parámetro en la función hemos usasdo Coche en mayúscu
 
 Crear métodos en la clase
 
-Como en nuestra clase coche está toda la información necesaria para determinar el valor de mercado, vamos a hacer este método dentro de la clase. supondremos que el coche vale 10000 si fue fabricado a partir de 1990 y que solo vale 2000 si fue fabricado antes de ese año. Eliminaremos el método que estaba fuera e imprimiremos el valor de mercado del coche que hemos creado usando este nuevo método. El código quea así:
+Como en nuestra clase coche está toda la información necesaria para determinar el valor de mercado, vamos a hacer este método dentro de la clase. supondremos que el coche vale 10000 si fue fabricado a partir de 1990 y que solo vale 2000 si fue fabricado antes de ese año. Eliminaremos el método que estaba fuera e imprimiremos el valor de mercado del coche que hemos creado usando este nuevo método. El código queda así:
 
 (Código: carpeta 11 archivo 6)

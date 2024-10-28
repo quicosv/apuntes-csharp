@@ -2,7 +2,11 @@
 
 Cuando creamos un proyecto ya tenemos unos cuantos ensamblados agregados automáticamente porque Microsoft ha pensado que son los más comunes para las tareas que se seuelen llevar a cabo en ese tipo de proyecto. Se pueden añadir otros ensamblados, por ejemplo a través del gestor de paquetes nuget, pero en este caso vamos a construir nuestro propio ensamblado para luego referenciarlo en un proyecto.
 
-En el explorador de soluciones ubicaremos nuestro proyecto, desplegaremos el menú de contexto y usaremos la opción de cerrar solución. A continuación crearemos un nuevo proyecto de tipo "Biblioteca de clases, Library" que se llamará "MiBiblioteca". observaremos que tenemos un archivo llamado "Class1.cs". Renombraremos la clase y crearemos un par de métodos. Uno extraerá el código de una página web y lo devolverá a quien lo llamó. el otro escribirá el código de la web en un fichero. Nuestra primera versión quedaría así:
+Crearemos un nuevo proyecto de tipo "classlib" que se llamará "MiBiblioteca".
+
+dotnet new classlib -o MiBiblioteca
+
+Observaremos que tenemos un archivo llamado "Class1.cs". Renombraremos la clase y crearemos un par de métodos. Uno extraerá el código de una página web y lo devolverá a quien lo llamó. el otro escribirá el código de la web en un fichero. Nuestra primera versión quedaría así:
 
 (Código: carpeta 15 archivo 1)
 
@@ -12,7 +16,9 @@ Podemos mejorarlo creando un método privado que se encargue de traer el conteni
 
 Así es como hemos encapsulado la funcionalidad de obtener la web.
 
-Una vez terminado el trabajo es momento de compilar la solución. Para eso podemos acudir al explorador de soluciones, ir al nombre de nuestro proyecto y elegir la opción compilar en el menú cuntextual. Cerraremos la solución de este proyecto (también desde el menú contextual en el explorador de soluciones).
+Una vez terminado el trabajo es momento de compilar la solución. Para eso ejecutaremos este comadno:
+
+dotnet build
 
 Para poder usar convenientemente la biblioteca en una aplicación crearemos una solución que va a contener a los dos proyectos.
 
@@ -32,7 +38,7 @@ Ahora ya se puede abrir Class1.cs de FuentesWeb y hacer el código. Por simplici
 
 Compilaremos el proyecto para asegurarnos de que no hay errores con este comando.
 
-dotent build
+dotnet build
 
 Luego creamos el proyecto de consola:
 
@@ -47,6 +53,7 @@ Añadimos la referencia a la biblioteca.
 dotnet add Cliente/Cliente.csproj reference Biblioteca\.csproj
 
 Ahora ya se puede editar el archivo Program.cs en el proyecte ClienteFuentesWeb y comprobar que cuando usamos la clase Visual Studio Code añade el using que corresponde.
+
 (Código: carpeta 15 archivo 3)
 
 Probemos a ejecutar el proyecto como siempre:
@@ -59,7 +66,7 @@ Tenemos que usar la opción project y pasarle el proyecto a ejecutar. El comando
 
 dotnet run --project Cliente
 
-Podemos compilar la solución en el carpeta de nuestra preferencia y luego llamar al ejecutable que ha generado la proyecto Cliente. Vamos a suponer que lo queremos en una carpeta al nivel de la solución para que sea más fáicl ejecutarlo. Los comandos serían:
+Podemos compilar la solución en la carpeta de nuestra preferencia y luego llamar al ejecutable que ha generado la proyecto Cliente. Vamos a suponer que lo queremos en una carpeta al nivel de la solución para que sea más fácil ejecutarlo. Los comandos serían:
 
 dotnet build --output salida
 salida\Cliente.exe

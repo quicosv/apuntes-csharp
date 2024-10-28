@@ -26,7 +26,7 @@ Ahora tenemos que modificar la función MenuPrincipal para que dé un valor bool
 
 Para establecer lo que devuelve la función, además de que sea tipo bool tendremos que crear dentro una variable de tipo bool que sea true inicialmente y que sea false cuando el usuario decida salir. Además, habrá que usar return para devolver el valor de dicha variable. Ahora el código queda de esta forma:
 
-(Código: carpeta 8 archvio 5)
+(Código: carpeta 8 archivo 5)
 
 Podemos modificar el programa. En la condición del while no es necesario poner mostrarMenu==true. Recordemos que, por ejemplo en los condicionales, queremos evaluar si una expresión es verdadera pero no ponemos el ==true porque C# ya evalúa si eso es verdadero o falso. Así queda el programa con el bucle modificado:
 
@@ -56,6 +56,6 @@ int adivinar = aleatorio.Next(1,11);
 
 A partir de aquí, crearemos una variable para saber la cantidad de intentos que lleva el usuario y otra para saber si el usuario acierta el número o no. En este caso, vamos a usar un bucle do while porque queremos que ese código se ejecute por lo menos una vez. Una vez más, Visual Studio Code nos ayuda y podemos usar do, do...while Loop para construir este bloque.
 
-Dentro del bucle pedimos un número al usuario, incrementamos el número de intentos y comparamos el número con el aleatorio generado. Si le número es igual ajustamos el valor booleano para salir del bucle. Una vez finalizado el do while se informa al usuario de la cantidad de intentos que le ha llevado adivinar el número. Aquí está el código completo.
+Dentro del bucle pedimos un número al usuario, incrementamos el número de intentos y comparamos el número con el aleatorio generado. Si el número es igual ajustamos el valor booleano para salir del bucle. Una vez finalizado el do while se informa al usuario de la cantidad de intentos que le ha llevado adivinar el número. Aquí está el código completo.
 
 (Código: carpeta 8 archivo 8)

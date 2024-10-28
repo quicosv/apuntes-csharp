@@ -20,7 +20,7 @@ Luego accedemos a cada elemento del array y le asignamos su valor. Como dijimos 
 
 Para saber la cantidad de elementos que tiene un array accedemos a la propiedad Length.
 
-Si intentamos asignar un nuevo elemento al array (por ejemplo el índice 5) no lo detectaríamos al comprobar los errores con control shift m, pero al ejecutar la aplicación en la consola veráimos una excepción.
+Si intentamos asignar un nuevo elemento al array (por ejemplo el índice 5) no lo detectaríamos al comprobar los errores con control shift m, pero al ejecutar la aplicación en la consola veríamos una excepción.
 
 Veamos ahora cómo declarar y asignar los valores de un array en la misma línea.
 

@@ -14,7 +14,7 @@ Presta atención a que hay dos signos igual seguidos. Un único signo igual es e
 
 Este juego aún no es interesante, en primer lugar porque no hay respuestas para las puertas 2 y 3. Admás, ¿qué pasa si el usuario pone 4, 5, 6 o incluso asdf? nuestra aplicación tiene que tener en cuenta todos los escenarios. La nueva versión queda así:
 
-(Código: caarpeta 3 archivo 2)
+(Código: carpeta 3 archivo 2)
 
 Podemos usar else if para evaluar más condiciones. Cuando encuentre una condición cierta se ejecutará el bloque correspondiente.
 
@@ -54,7 +54,7 @@ Vamos a cambiar las normas del concurso. Ahora solo se puede ganar eligiendo la 
 
 (Código: carpeta 3 archivo 7)
 
-Hablemos primero de la forma en la que asignamos el valor de la variable mensaje. se escribe la condición que queremos evaluar. Si la condición se cumple se ejecutará lo que haya después del singo de interrogación. Si no se cumple se ejecutará lo que hay después del signo de dos puntos.
+Hablemos primero de la forma en la que asignamos el valor de la variable mensaje. se escribe la condición que queremos evaluar. Si la condición se cumple se ejecutará lo que haya después del signo de interrogación. Si no se cumple se ejecutará lo que hay después del signo de dos puntos.
 
 Ahora veamos cómo se imprime el mensaje. Aquí estamos sustituyendo cosas en una cadena de texto. Después de la coma estamos pasando una lista de variables separadas por comas. En la cadena, cuando queremos que aparezca el valor de una de las variables de la lista ponemos entre llaves la posición que ocupa en la lista.
 

@@ -14,7 +14,7 @@ Imaginemos que estamos haciendo una aplicación de gestión de tareas. Tenemos u
 - Que esté completada.
 - Que esté eliminada.
 
-Podríamos convenir que el número 1 represente que la tarea no esté iniciada o que el 2 signifique que está en progreso. Pero cuando estamos leyendo el código esos números no tienen un significado obvio. Necesitaríamos acudir a algún contexto (como comentarios en el código) que nos recordaran el significado. Además, puede que ya haya pasado tiempo, que la forma de gestionar las tareas haya cambiado y que esos números no tengan sentido. También podríamos usar cadenas de texto. el probelma es que alguien podría escribirlas mal en algún punto y, por ejemplo, no podríamos encontrar todas las tareas sin empezar.
+Podríamos convenir que el número 1 represente que la tarea no esté iniciada o que el 2 signifique que está en progreso. Pero cuando estamos leyendo el código esos números no tienen un significado obvio. Necesitaríamos acudir a algún contexto (como comentarios en el código) que nos recordaran el significado. Además, puede que ya haya pasado tiempo, que la forma de gestionar las tareas haya cambiado y que esos números no tengan sentido. También podríamos usar cadenas de texto. El problema es que alguien podría escribirlas mal en algún punto y, por ejemplo, no podríamos encontrar todas las tareas sin empezar.
 
 Lo bueno del tipo enum es que nos da un texto equivalente para un número, de forma que el sistema deja de se ambiguo y sabemos exactamente con qué estamos trabajando.
 

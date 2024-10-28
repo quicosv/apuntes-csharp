@@ -1,4 +1,5 @@
 ﻿Linq
+
 Linq es el lenguaje que nos permite hacer diferentes operaciones en las colecciones como ordenar o filtrar.
 
 Linq tiene dos sintaxis: una parecida a las consultas de las bases de datos sql y otra parecida a los métodos.
@@ -8,7 +9,6 @@ Linq tiene dos sintaxis: una parecida a las consultas de las bases de datos sql 
 Aquí hemos llevado la inicialización un paso más allá y hemos inicializado cada uno de los coches en el mismo momento de la creación de la lista.
 
 Haremos una comparativa entre las dos formas de usar Linq para hacer la misma operación. en primer lugar, buscaremos todos los coches que sean de la marca Seat y que hayan sido fabricados en 2010.
-
 
 Primero lo haremos a la manera de las consultas.
 
@@ -53,5 +53,5 @@ De hecho, podemos utilizar este método para hacer operaciones con todos los coc
 Otros métodos interesantes
 
 - Exists comprueba si algún coche cumple ciertas condiciones.
-- TureForAll comprueba si una condición es cierta para todos los coches.
+- TrueForAll comprueba si una condición es cierta para todos los coches.
 - Sum suma todos los valores numéricos. Por ejemplo, podríamos sumar todos los precios.

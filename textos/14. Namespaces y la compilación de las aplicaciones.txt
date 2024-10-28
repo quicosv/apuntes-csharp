@@ -12,7 +12,7 @@ Si en lugar de esta aplicación hubiéramos hecho ciertas clases con sus corresp
 
 La librería de .NET tiene tantas clases que existía el riesgo de que algunas de ellas se llamaran igual, así que se necesitaba una manera de diferenciarlas. De ahí surgieron los namespaces.
 
-Podríamos haber usado System.Console.WriteLine para haber imprimido el Hola Mudno, pero no hemos tenido que usar System. ¿Por qué? porque en la configuración del proyecto se le dice que tiene que buscar la clase Console en el namespace System.
+Podríamos haber usado System.Console.WriteLine para haber imprimido el Hola Mundo, pero no hemos tenido que usar System. ¿Por qué? porque en la configuración del proyecto se le dice que tiene que buscar la clase Console en el namespace System.
 
 Supongamos que buscamos en el sitio de Microsoft la forma de escribir texto en un archivo y nos encontramos con un código como éste:
 

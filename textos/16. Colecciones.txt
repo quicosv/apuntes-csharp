@@ -1,14 +1,14 @@
 ﻿Colecciones
 
-Hemos visto que los arrays nos permiten guardar un grupo o secuencia de datos relacionados en una misma variable. Creábamos un array dándole un tipo de dato y cada elemento del array tenía que ser de ese tipo de dato. También le pasábamos entre corchetes la cantidad de elementos que iba a tener ese array. También podíamos referirnos a cualquier elemento del array para cambiar o consultar su valor mediante el índice, sabiendo que el primer elemento tiene como índice 0. También se podía iterar el array o pasarlo como parámetor a un método.
+Hemos visto que los arrays nos permiten guardar un grupo o secuencia de datos relacionados en una misma variable. Creábamos un array dándole un tipo de dato y cada elemento del array tenía que ser de ese tipo de dato. También le pasábamos entre corchetes la cantidad de elementos que iba a tener ese array. También podíamos referirnos a cualquier elemento del array para cambiar o consultar su valor mediante el índice, sabiendo que el primer elemento tiene como índice 0. También se podía iterar el array o pasarlo como parámetro a un método.
 
-En general, además de lo que ya nos permiten hacer los arrays, en las colecciones podremos trabajar con tipos de datos más complejos (como los cohces que creábamos) y podremos hacer cosas como añadir, ordenar o filtrar los elementos.
+En general, además de lo que ya nos permiten hacer los arrays, en las colecciones podremos trabajar con tipos de datos más complejos (como los coches que creábamos) y podremos hacer cosas como añadir, ordenar o filtrar los elementos.
 
 De todas las colecciones que hay, en este capítulo nos centraremos en dos: las listas y los diccionarios.
 
 Supongamos que queremos manejar cierto número de coches que tengamos en el concesionario. Necesitamos agruparlos en una colección.
 
-Partimos de un código simple en el que tenemos dos clases muy simples: Coche y Libro. También declaramos un par de cohces y un libro y les damos valores:
+Partimos de un código simple en el que tenemos dos clases muy simples: Coche y Libro. También declaramos un par de coches y un libro y les damos valores:
 
 (Código: carpeta 16 archivo 1)
 
@@ -28,7 +28,7 @@ Listas
 
 (Código: carpeta 16 archivo 4)
 
-En la definición de la lista se incluye entre menor que y mayor que el tipo de dato que tendrá cada elemento de la lista. Esto hace que si intentamos añadir el libro Visual Stuido Code dará un error diciendo que no se puede convertir de Libro a Coche.
+En la definición de la lista se incluye entre menor que y mayor que el tipo de dato que tendrá cada elemento de la lista. Esto hace que si intentamos añadir el libro Visual Studio Code dará un error diciendo que no se puede convertir de Libro a Coche.
 
 Esto nos permite trabajar con total confianza. Ahora sí que se imprimen bien las marcas de los coches.
 
@@ -54,6 +54,6 @@ La notación es igual que en los arrays. en vez de poner entre corchetes el índ
 
 Inicialización
 
-Podemos crear los objetos y las listas dándoles valores en la imsma línea. Los valores se pasan entre llaves.
+Podemos crear los objetos y las listas dándoles valores en la misma línea. Los valores se pasan entre llaves.
 
 (Código: carpeta 16 archivo 8)

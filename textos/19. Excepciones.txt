@@ -14,9 +14,9 @@ Ahora vamos a cambiar intencionadamente el nombre del archivo por uno que no exi
 
 (Código: carpeta 19 archivo 2)
 
-Si ejecutamos la aplicación veremos una excepción que dice que no encuentra "archivo.txt". El problema es que el suario final también lo vería y no comprendría lo que está pasanado. Por lo tanto, debemos intentar que el usario nunca vea este tipo de mensajes.
+Si ejecutamos la aplicación veremos una excepción que dice que no encuentra "archivo.txt". El problema es que el usuario final también lo vería y no comprendería lo que está pasando. Por lo tanto, debemos intentar que el usuario nunca vea este tipo de mensajes.
 
-Aquí tenemos la ofrma más fácil de solucionarlo.
+Aquí tenemos la forma más fácil de solucionarlo.
 
 (Código: carpeta 19 archivo 3)
 
@@ -26,7 +26,7 @@ Vamos a ir un paso más allá. Vamos a capturar la excepción y vamos a darle al
 
 (Código: carpeta 19 archivo 4)
 
-Esto le da alguna pista más al usuario sobre lo que está pasando.
+Esto le da alguna pista más al usuario sobre lo que está pasando, pero sigue siendo un mensaje un tanto técnico y, además, está en inglés.
 
 Podemos ser aún más específicos. La documentaación sobre File.ReadAllText está en los comentarios de la propia función (accedemos poniendo el cursor en la función y pulsando F12) o en internet. Vamos a reescribir el ejemplo capturando las excepciones que nos parezca que tengan sentido. Por ejemplo, daremos un mensaje de error si no encuentra el archivo y otro diferente si no encuentra el directorio.
 

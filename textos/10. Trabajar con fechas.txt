@@ -35,6 +35,7 @@ Ahora añadiremos 3 horas:
 (Código: carpeta 10 archivo 7)
 
 No hay métodos para restar tiempo, pero se pueden usar los que estamos viendo con valores negativos. Veremos qué día fue hace 3 días:
+
 (Código: carpeta 10 archivo 8)
 
 También se puede extraer cualquier parte de una fecha. Por ejemplo, así se extrae un número que representa el mes.

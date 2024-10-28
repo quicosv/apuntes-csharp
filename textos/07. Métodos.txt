@@ -33,7 +33,7 @@ Por lo tanto, vamos a intentar separar el código que se repite, ponerlo en su p
 
 Por lo tanto, los métodos nos ayudarán a conseguir un código legible, claro, limio y fácil de mantener.
 
-Empecemos con la transformación. Crearemos um método que se llamará InvertirCadena y en su cuerpo copiaremos las líneas que convierten una cadena en un array de carcteres y el foreach que lo invierte. Para asegurarnos de que funciona haremos algún que otro cambio de variable con f2, crearemos una cadena con el texto Hola Mundo y haremos que dentro del foreach se muestre cada elemento en la pantalla e invocaremos al método desde fuera.
+Empecemos con la transformación. Crearemos un método que se llamará InvertirCadena y en su cuerpo copiaremos las líneas que convierten una cadena en un array de carcteres y el foreach que lo invierte. Para asegurarnos de que funciona haremos algún que otro cambio de variable con f2, crearemos una cadena con el texto Hola Mundo y haremos que dentro del foreach se muestre cada elemento en la pantalla e invocaremos al método desde fuera.
 
 (Código: carpeta 7 archivo 3)
 

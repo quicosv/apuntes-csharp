@@ -6,7 +6,7 @@ Según el nivel de matemáticas que tengas quizá hayas visto algo como esto:
 
 Probablemente llegues a la conclusión de que x vale 7.
 
-siguiendo la misma lógica, mira este fragmento de código:
+Siguiendo la misma lógica, mira este fragmento de código:
 
 x = 7;
 y = x + 3;

@@ -18,7 +18,7 @@ Como las dos variables guardan la misma referencia podemos acceder a las propied
 
 Al ejecutarlo se ve que al impirmir miCoche tenemos el valor que hemos cambiado en miOtroCoche. Por lo tanto, esto enfatiza que las dos variables están apuntando al mismo lugar.
 
-Hay dos maneras de eliminar las referencias a los objetos. Una es que finalice la ejecución del bloque en el que hayan sido declarados. En nuesto caso, esto se cumplirá cuando finalice el programa, pero si hubiésemos declarado los objetos dnetro de un método perderíamos su referencia tan pronto como terminara la ejecución de dicho método.
+Hay dos maneras de eliminar las referencias a los objetos. Una es que finalice la ejecución del bloque en el que hayan sido declarados. En nuesto caso, esto se cumplirá cuando finalice el programa, pero si hubiésemos declarado los objetos dentro de un método perderíamos su referencia tan pronto como terminara la ejecución de dicho método.
 
 La otra forma de eliminar una referencia a un objeto es haciendo que su valor sea null. Para poder hacer esto hay que poner el signo de interrogación en el tipo en la declaración para que acepte el valor null.
 

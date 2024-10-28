@@ -20,4 +20,4 @@ A la hora de recordar cómo se define el bucle for, quizá ayude separar las tre
 
 En este caso en el bloque tenemos una instrucción if que se ejecutará cuando i valga 7. Entonces se imprimirá que hemos encontrado el 7, ¿pero qué hace break? simplemente salir del bucle for y continuar con el resto del programa.
 
-Podemos autocompletar un esqueleto del bucle. Para eso hay que escribir la f (y opcionalmente la o) y bajar con las flechas hasta &laquo;for, for loop&rauo;. Una vez completado el esqueleto, el cursor se posicionará en le nombre de la variable para que pongamos el que queramos. Hecho esto, pulsamos tab y podemos completar el valor inicial y el valor final para ajustar el bucle a nuestras necesidades.
+Podemos autocompletar un esqueleto del bucle. Para eso hay que escribir la f (y opcionalmente la o) y bajar con las flechas hasta "for, for loop". Una vez completado el esqueleto, el cursor se posicionará en le nombre de la variable para que pongamos el que queramos. Hecho esto, pulsamos tab y podemos completar el valor inicial y el valor final para ajustar el bucle a nuestras necesidades.

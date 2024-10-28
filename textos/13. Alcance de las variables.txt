@@ -1,8 +1,8 @@
 ﻿Alcance de las variables
 
-Debemos asegurarnos de entender el alcance de als variables (ya sean las que almacenen tipos simples o referencias a valores complejos) porque hemos aprendido que esto afecta a la vida de nuestros objetos. Esto nos vendrá bien para hablar de palabras como public, que hemos usado varias veces pero cuyo significado no hemos explicado todavía.
+Debemos asegurarnos de entender el alcance de las variables (ya sean las que almacenen tipos simples o referencias a valores complejos) porque hemos aprendido que esto afecta a la vida de nuestros objetos. Esto nos vendrá bien para hablar de palabras como public, que hemos usado varias veces pero cuyo significado no hemos explicado todavía.
 
-Cuando declaramos una varaible dentro de un bloque decódigo su vida está ligada a la vida de ese bloque y a la de todos los bloques que estén dentro de ese bloque. Eso significa que cuando finalice la ejecución de ese bloque ya no se podrá acceder a esa variable.
+Cuando declaramos una variable dentro de un bloque decódigo su vida está ligada a la vida de ese bloque y a la de todos los bloques que estén dentro de ese bloque. Eso significa que cuando finalice la ejecución de ese bloque ya no se podrá acceder a esa variable.
 
 Empecemos experimentando con bloques que ya hemos visto.
 
@@ -26,7 +26,7 @@ Modificadores
 
 pensemos en una radio que vaya a pilas. Todo lo que uno debe saebr para utilizarla se reduce a cambiar las pilas, encender y apagar la radio, subir y bajar el volumen y cambiar de emisoras. No es necesario que se sepa cómo son los mecanismos que hacen todo esto posible. Así es como deberíamos tratar a las clases.
 
-si un método se define con la palabra private significa que le puede llamar cualquier método que esté en la mimsa clase. Esto se dbeería usar con aquellos métodos que ayuden a extender la funcionalidad de los métodos públicos de la clase con lo que puede trabajar cualquiera.
+si un método se define con la palabra private significa que le puede llamar cualquier método que esté en la mimsa clase. Esto se dbeería usar con aquellos métodos que ayuden a extender la funcionalidad de los métodos públicos de la clase con los que puede trabajar cualquiera.
 
 Si algo se define con la palabra public significa que podrá ser llamado desde fuera de la clase.
 
